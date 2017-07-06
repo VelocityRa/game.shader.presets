@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="game.resource.shader.presets"
+  version="0.0.1"
+  name="Shader Preset Support"
+  provider-name="Team-Kodi">
+  <requires>@ADDON_DEPENDS@</requires>
+  <extension
+    point="kodi.shader.presets"
+    library_@PLATFORM@="@LIBRARY_FILENAME@"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Shader Preset Support</summary>
+    <description lang="en">This library provides support for libretro "meta" shaders, or .cgp files.</description>
+    <platform>@PLATFORM@</platform>
+    <noicon>true</noicon>
+    <nofanart>true</nofanart>
+  </extension>
+</addon>
