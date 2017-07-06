@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.1)
-project(game.resource.shader.presets)
+project(game.shader.presets)
 
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
@@ -68,6 +68,6 @@ list(APPEND DEPLIBS ${kodiplatform_LIBRARIES}
                     ${p8-platform_LIBRARIES})
 
 
-build_addon(game.resource.shader.presets SHADERPRESETS DEPLIBS)
+build_addon(game.shader.presets SHADERPRESETS DEPLIBS)
 
 # ------------------------------------------------------------------------------

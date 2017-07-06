@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
-  id="game.resource.shader.presets"
+  id="game.shader.presets"
   version="0.0.1"
   name="Shader Preset Support"
   provider-name="Team-Kodi">
