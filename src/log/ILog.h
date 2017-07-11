@@ -20,7 +20,7 @@
  */
 #pragma once
 
-namespace JOYSTICK
+namespace SHADER
 {
   enum SYS_LOG_LEVEL
   {

@@ -22,7 +22,7 @@
 #include "DirectoryUtils.h"
 #include "FileUtils.h"
 
-using namespace JOYSTICK;
+using namespace SHADER;
 
 bool CFilesystem::Initialize(void)
 {

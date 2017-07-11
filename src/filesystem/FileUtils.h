@@ -25,7 +25,7 @@
 
 #include <string>
 
-namespace JOYSTICK
+namespace SHADER
 {
   class CFileUtils
   {

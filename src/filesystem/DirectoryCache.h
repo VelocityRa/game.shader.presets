@@ -26,7 +26,7 @@
 #include <string>
 #include <vector>
 
-namespace JOYSTICK
+namespace SHADER
 {
   class IDirectoryCacheCallback
   {

@@ -21,7 +21,7 @@
 
 #include "filesystem/IFile.h"
 
-namespace JOYSTICK
+namespace SHADER
 {
   /*!
    * \brief Generic implementation of GetLength() through other IFile methods

@@ -24,13 +24,13 @@
 
 #include <algorithm>
 
-using namespace JOYSTICK;
+using namespace SHADER;
 
 #define DIRECTORY_LIFETIME_MS  2000 // 2 seconds
 
 // --- Helper function ---------------------------------------------------------
 
-namespace JOYSTICK
+namespace SHADER
 {
   bool HasPath(const std::vector<kodi::vfs::CDirEntry>& items, const std::string& path)
   {

@@ -23,7 +23,7 @@
 
 #include <string>
 
-namespace JOYSTICK
+namespace SHADER
 {
   class IDirectoryUtils
   {

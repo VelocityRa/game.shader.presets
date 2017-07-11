@@ -22,7 +22,7 @@
 
 #include <kodi/Filesystem.h>
 
-using namespace JOYSTICK;
+using namespace SHADER;
 
 bool CVFSFileUtils::Exists(const std::string& url)
 {

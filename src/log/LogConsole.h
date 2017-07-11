@@ -24,7 +24,7 @@
 
 #include "p8-platform/threads/mutex.h"
 
-namespace JOYSTICK
+namespace SHADER
 {
   class CLogConsole : public ILog
   {

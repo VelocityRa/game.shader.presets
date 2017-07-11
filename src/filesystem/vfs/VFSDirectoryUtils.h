@@ -21,7 +21,7 @@
 
 #include "filesystem/IDirectoryUtils.h"
 
-namespace JOYSTICK
+namespace SHADER
 {
   class CVFSDirectoryUtils : public IDirectoryUtils
   {

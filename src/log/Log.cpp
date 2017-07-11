@@ -32,7 +32,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-using namespace JOYSTICK;
+using namespace SHADER;
 using namespace P8PLATFORM;
 
 #define MAXSYSLOGBUF (256)

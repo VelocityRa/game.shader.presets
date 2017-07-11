@@ -23,7 +23,7 @@
 
 #include <syslog.h>
 
-using namespace JOYSTICK;
+using namespace SHADER;
 
 CLogSyslog::CLogSyslog(void)
 {

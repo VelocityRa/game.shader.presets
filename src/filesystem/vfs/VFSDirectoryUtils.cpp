@@ -23,7 +23,7 @@
 
 #include <assert.h>
 
-using namespace JOYSTICK;
+using namespace SHADER;
 
 #if defined(TARGET_WINDOWS)
 #if defined(CreateDirectory)

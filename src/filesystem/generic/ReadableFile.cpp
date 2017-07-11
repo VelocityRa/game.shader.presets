@@ -22,7 +22,7 @@
 
 #include <algorithm>
 
-using namespace JOYSTICK;
+using namespace SHADER;
 
 // Size of buffer used for each Read() call
 #define READ_CHUNK_SIZE  (100 * 1024) // 100 KB

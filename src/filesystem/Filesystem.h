@@ -19,7 +19,7 @@
  */
 #pragma once
 
-namespace JOYSTICK
+namespace SHADER
 {
   class CFilesystem
   {

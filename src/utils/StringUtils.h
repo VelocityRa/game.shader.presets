@@ -22,7 +22,7 @@
 #include <stdarg.h>
 #include <string>
 
-namespace JOYSTICK
+namespace SHADER
 {
   class StringUtils
   {

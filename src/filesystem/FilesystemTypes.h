@@ -21,7 +21,7 @@
 
 #include <memory>
 
-namespace JOYSTICK
+namespace SHADER
 {
   class IFile;
   typedef std::shared_ptr<IFile> FilePtr;

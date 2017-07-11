@@ -27,7 +27,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-using namespace JOYSTICK;
+using namespace SHADER;
 
 #define FORMAT_BLOCK_SIZE  512 // # of bytes for initial allocation for printf
 

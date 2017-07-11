@@ -25,20 +25,20 @@
 #include "p8-platform/threads/mutex.h"
 
 #ifndef esyslog
-#define esyslog(...) JOYSTICK::CLog::Get().Log(SYS_LOG_ERROR, __VA_ARGS__)
+#define esyslog(...) SHADER::CLog::Get().Log(SYS_LOG_ERROR, __VA_ARGS__)
 #endif
 
 #ifndef isyslog
-#define isyslog(...) JOYSTICK::CLog::Get().Log(SYS_LOG_INFO, __VA_ARGS__)
+#define isyslog(...) SHADER::CLog::Get().Log(SYS_LOG_INFO, __VA_ARGS__)
 #endif
 
 #ifndef dsyslog
-#define dsyslog(...) JOYSTICK::CLog::Get().Log(SYS_LOG_DEBUG, __VA_ARGS__)
+#define dsyslog(...) SHADER::CLog::Get().Log(SYS_LOG_DEBUG, __VA_ARGS__)
 #endif
 
 #define LOG_ERROR_STR(s)  esyslog("ERROR (%s,%d): %s: %m", __FILE__, __LINE__, s)
 
-namespace JOYSTICK
+namespace SHADER
 {
   class CLog
   {

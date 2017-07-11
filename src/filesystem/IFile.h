@@ -22,7 +22,7 @@
 #include <stdint.h>
 #include <string>
 
-namespace JOYSTICK
+namespace SHADER
 {
   // File flags from File.h of Kodi
   enum READ_FLAG

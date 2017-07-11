@@ -22,7 +22,7 @@
 
 #include "ILog.h"
 
-namespace JOYSTICK
+namespace SHADER
 {
   class CLogSyslog : public ILog
   {

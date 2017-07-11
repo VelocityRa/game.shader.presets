@@ -20,7 +20,7 @@
 
 #include "SeekableFile.h"
 
-using namespace JOYSTICK;
+using namespace SHADER;
 
 int64_t CSeekableFile::GetLength(void)
 {

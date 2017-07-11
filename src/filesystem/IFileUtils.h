@@ -25,7 +25,7 @@
 
 #include <kodi/Filesystem.h>
 
-namespace JOYSTICK
+namespace SHADER
 {
   class IFileUtils
   {
