@@ -25,17 +25,23 @@
 #include <string/stdstring.h>
 #include <streams/file_stream.h>
 
+/* REMOVED CODE
 #include "../msg_hash.h"
+*/
 #include "video_shader_parse.h"
 
 /* ADDED CODE */
+// TODO: FIX LOGGING
+#include <assert.h>
 #define RARCH_LOG(...) do { \
    printf("[LOG] game.shader.presets :: " __VA_ARGS__); \
 } while(0)
 #define RARCH_WARN(...) do { \
+   assert(0); \
    printf("[WARN] game.shader.presets :: " __VA_ARGS__); \
 } while(0)
 #define RARCH_ERR(...) do { \
+   assert(0); \
    printf("[ERROR] game.shader.presets :: " __VA_ARGS__); \
 } while(0)
 /* END OF ADDED CODE */
