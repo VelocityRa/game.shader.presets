@@ -1,7 +1,7 @@
 /* Copyright  (C) 2010-2016 The RetroArch team
  *
  * ---------------------------------------------------------------------------------------
- * The following license statement only applies to this file (config_file_userdata.h).
+ * The following license statement only applies to this file (retro_assert.h).
  * ---------------------------------------------------------------------------------------
  *
  * Permission is hereby granted, free of charge,
@@ -20,36 +20,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef _LIBRETRO_SDK_CONFIG_FILE_USERDATA_H
-#define _LIBRETRO_SDK_CONFIG_FILE_USERDATA_H
+#ifndef __RETRO_ASSERT_H
+#define __RETRO_ASSERT_H
 
-#include <string.h>
+#include <assert.h>
 
-#include <file/config_file.h>
-
-struct config_file_userdata
-{
-   config_file_t *conf;
-   const char *prefix[2];
-};
-
-int config_userdata_get_float(void *userdata, const char *key_str,
-      float *value, float default_value);
-
-int config_userdata_get_int(void *userdata, const char *key_str,
-      int *value, int default_value);
-
-int config_userdata_get_float_array(void *userdata, const char *key_str,
-      float **values, unsigned *out_num_values,
-      const float *default_values, unsigned num_default_values);
-
-int config_userdata_get_int_array(void *userdata, const char *key_str,
-      int **values, unsigned *out_num_values,
-      const int *default_values, unsigned num_default_values);
-
-int config_userdata_get_string(void *userdata, const char *key_str,
-      char **output, const char *default_output);
-
-void config_userdata_free(void *ptr);
+#ifdef RARCH_INTERNAL
+#define retro_assert(cond) do { \
+   if (!(cond)) { printf("Assertion failed at %s:%d.\n", __FILE__, __LINE__); abort(); } \
+} while(0)
+#else
+#define retro_assert(cond) assert(cond)
+#endif
 
 #endif

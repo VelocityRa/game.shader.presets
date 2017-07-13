@@ -1,5 +1,5 @@
 /*
- *      Copyright (C) 2017 Nick Renieris
+ *      Copyright (C) 2017      Nick Renieris
  *      Copyright (C) 2014-2017 Garrett Brown
  *      Copyright (C) 2014-2017 Team Kodi
  *
@@ -21,16 +21,17 @@
 
 #include "addon.h"
 
-#include <file/config_file.h>
-#include "gfx/video_shader_parse.h"
+#include "utils/CommonIncludes.h"
+#include "utils/CommonMacros.h"
 #include "filesystem/Filesystem.h"
 #include "log/Log.h"
 #include "log/LogAddon.h"
-#include "utils/CommonIncludes.h"
-#include "utils/CommonMacros.h"
+#include "file/config_file.h"
+#include "gfx/video_shader_parse.h"
 
 #include <algorithm>
 #include <vector>
+#include <memory>
 
 using namespace SHADER;
 
@@ -66,68 +67,73 @@ int CShaderPreset::GetTest(unsigned int test_arg)
 {
   CLog::Get().SetType(SYS_LOG_TYPE_ADDON);
   CLog::Get().Log(SYS_LOG_INFO, "TESTING BINARY ADDON %d", test_arg);
-  CLog::Get().SetType(SYS_LOG_TYPE_CONSOLE);
-  CLog::Get().Log(SYS_LOG_INFO, "TESTING BINARY ADDON SECOND");
 
   return test_arg + 5;
 }
 
-/// ======== CONFIG_FILE ========
+// ======== CONFIG_FILE ========
 
-config_file_t* wrapper_config_file_new(const char *path)
+config_file_t_* CShaderPreset::wrapper_config_file_new(const char *path)
 {
-  config_file_new(path);
+  return reinterpret_cast<config_file_t_*>(config_file_new(path));
 }
-config_file_t* wrapper_config_file_new_from_string(const char *from_string)
+config_file_t_* CShaderPreset::wrapper_config_file_new_from_string(const char *from_string)
 {
-  config_file_new_from_string(from_string);
+  return reinterpret_cast<config_file_t_*>(config_file_new_from_string(from_string));
 }
-void wrapper_config_file_free(config_file_t *conf)
+void CShaderPreset::wrapper_config_file_free(config_file_t_ *conf)
 {
-  config_file_free(conf);
+  config_file_free(reinterpret_cast<config_file_t*>(conf));
 }
 
-/// =============================
-/// ==== VIDEO_SHADER_PARSE =====
+// =============================
 
-bool CShaderPreset::wrapper_read_conf_path_cgp(const char *conf_path, struct video_shader *shader)
+// ==== VIDEO_SHADER_PARSE =====
+
+bool CShaderPreset::wrapper_video_shader_read_conf_path_cgp(const char *conf_path, struct video_shader_ **shader)
 {
   config_file_t *conf = config_file_new(conf_path);
-  video_shader *shader = calloc(1, sizeof(video_shader)); // TODO: Use new maybe
+  video_shader *new_shader = static_cast<video_shader*>(calloc(1, sizeof(video_shader))); // TODO: Use new maybe
 
-  CLog::Get().Log(SYS_LOG_INFO, "PASSES: %d", shader->passes);
-  CLog::Get().Log(SYS_LOG_INFO, "VARS: %d", shader->variables);
+  CLog::Get().Log(SYS_LOG_INFO, "PASSES: %d", new_shader->passes);
+  CLog::Get().Log(SYS_LOG_INFO, "VARS: %d", new_shader->variables);
 
-  bool returnStatus = video_shader_read_conf_cgp(conf, shader);
+  bool returnStatus = video_shader_read_conf_cgp(conf, new_shader);
+
+  *shader = reinterpret_cast<video_shader_*>(new_shader);
   // TODO: config_file_free
   // config_file_free(conf)
   return returnStatus;
 }
-bool CShaderPreset::wrapper_read_conf_cgp(config_file_t *conf, struct video_shader *shader)
+bool CShaderPreset::wrapper_video_shader_read_conf_cgp(config_file_t_ *conf, struct video_shader_ **shader)
 {
-  return video_shader_read_conf_cgp(conf, shader);
+  return video_shader_read_conf_cgp(
+    reinterpret_cast<config_file_t*>(conf),
+    reinterpret_cast<video_shader*>(shader));
 }
-void CShaderPreset::wrapper_write_conf_cgp(config_file_t *conf, struct video_shader *shader)
+void CShaderPreset::wrapper_video_shader_write_conf_cgp(config_file_t_ *conf, struct video_shader_ *shader)
 {
-  video_shader_write_conf_cgp(conf, shader);
+  video_shader_write_conf_cgp(
+    reinterpret_cast<config_file_t*>(conf),
+    reinterpret_cast<video_shader*>(shader));
 }
-void CShaderPreset::wrapper_resolve_relative(struct video_shader *shader, const char *ref_path)
+void CShaderPreset::wrapper_video_shader_resolve_relative(struct video_shader_ *shader, const char *ref_path)
 {
-  video_shader_resolve_relative(shader, ref_path);
+  video_shader_resolve_relative(
+    reinterpret_cast<video_shader*>(shader),
+    ref_path);
 }
-bool CShaderPreset::wrapper_resolve_current_parameters(config_file_t *conf, struct video_shader *shader)
+bool CShaderPreset::wrapper_video_shader_resolve_current_parameters(config_file_t_ *conf, struct video_shader_ *shader)
 {
-  return video_shader_resolve_current_parameters(conf, shader);
+  return video_shader_resolve_current_parameters(
+    reinterpret_cast<config_file_t*>(conf),
+    reinterpret_cast<video_shader*>(shader));
 }
-bool CShaderPreset::wrapper_resolve_parameters(config_file_t *conf, struct video_shader *shader)
+bool CShaderPreset::wrapper_video_shader_resolve_parameters(config_file_t_ *conf, struct video_shader_ *shader)
 {
-  return video_shader_resolve_parameters(conf, shader);
+  return video_shader_resolve_parameters(
+    reinterpret_cast<config_file_t*>(conf),
+    reinterpret_cast<video_shader*>(shader));
 }
-rarch_shader_type CShaderPreset::wrapper_parse_type(const char *path, rarch_shader_type fallback)
-{
-  return video_shader_wrapper_parse_type(path, fallback);
-}
-
-/// =============================
 
 ADDONCREATOR(CShaderPreset) // Don't touch this!

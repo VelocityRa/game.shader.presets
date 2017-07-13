@@ -1,7 +1,7 @@
 /* Copyright  (C) 2010-2016 The RetroArch team
  *
  * ---------------------------------------------------------------------------------------
- * The following license statement only applies to this file (intrinsics.h).
+ * The following license statement only applies to this file (file_stream.h).
  * ---------------------------------------------------------------------------------------
  *
  * Permission is hereby granted, free of charge,
@@ -20,65 +20,62 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef __LIBRETRO_SDK_COMPAT_INTRINSICS_H
-#define __LIBRETRO_SDK_COMPAT_INTRINSICS_H
+#ifndef __LIBRETRO_SDK_FILE_STREAM_H
+#define __LIBRETRO_SDK_FILE_STREAM_H
 
 #include <stdint.h>
 #include <stddef.h>
-#include <string.h>
+
+#include <sys/types.h>
 
 #include <retro_common_api.h>
-#include <retro_inline.h>
-
-#if defined(_MSC_VER) && !defined(_XBOX)
-#if (_MSC_VER > 1310)
-#include <intrin.h>
-#endif
-#endif
+#include <boolean.h>
 
 RETRO_BEGIN_DECLS
 
-/* Count Leading Zero, unsigned 16bit input value */
-static INLINE unsigned compat_clz_u16(uint16_t val)
+typedef struct RFILE RFILE;
+
+enum
 {
-#ifdef __GNUC__
-   return __builtin_clz(val << 16 | 0x8000);
-#else
-   unsigned ret = 0;
+   RFILE_MODE_READ = 0,
+   RFILE_MODE_READ_TEXT,
+   RFILE_MODE_WRITE,
+   RFILE_MODE_READ_WRITE,
 
-   while(!(val & 0x8000) && ret < 16)
-   {
-      val <<= 1;
-      ret++;
-   }
+   /* There is no garantee these requests will be attended. */
+   RFILE_HINT_UNBUFFERED = 1<<8,
+   RFILE_HINT_MMAP       = 1<<9  /* requires RFILE_MODE_READ */
+};
 
-   return ret;
-#endif
-}
+RFILE *filestream_open(const char *path, unsigned mode, ssize_t len);
 
-/* Count Trailing Zero */
-static INLINE int compat_ctz(unsigned x)
-{
-#if defined(__GNUC__) && !defined(RARCH_CONSOLE)
-   return __builtin_ctz(x);
-#elif _MSC_VER >= 1400
-   unsigned long r = 0;
-   _BitScanReverse((unsigned long*)&r, x);
-   return (int)r;
-#else
-/* Only checks at nibble granularity, 
- * because that's what we need. */
-   if (x & 0x000f)
-      return 0;
-   if (x & 0x00f0)
-      return 4;
-   if (x & 0x0f00)
-      return 8;
-   if (x & 0xf000)
-      return 12;
-   return 16;
-#endif
-}
+ssize_t filestream_seek(RFILE *stream, ssize_t offset, int whence);
+
+ssize_t filestream_read(RFILE *stream, void *data, size_t len);
+
+ssize_t filestream_write(RFILE *stream, const void *data, size_t len);
+
+ssize_t filestream_tell(RFILE *stream);
+
+void filestream_rewind(RFILE *stream);
+
+int filestream_close(RFILE *stream);
+
+int filestream_read_file(const char *path, void **buf, ssize_t *len);
+
+char *filestream_gets(RFILE *stream, char *s, size_t len);
+
+char *filestream_getline(RFILE *stream);
+
+int filestream_getc(RFILE *stream);
+
+int filestream_eof(RFILE *stream);
+
+bool filestream_write_file(const char *path, const void *data, ssize_t size);
+
+int filestream_putc(RFILE *stream, int c);
+
+int filestream_get_fd(RFILE *stream);
 
 RETRO_END_DECLS
 

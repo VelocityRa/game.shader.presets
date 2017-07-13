@@ -29,9 +29,9 @@
 
 #include "video_state_tracker.h"
 
-#include "../input/input_config.h"
+//#include "../input/input_config.h"
 
-#include "../verbosity.h"
+//#include "../verbosity.h"
 
 struct state_tracker_internal
 {
@@ -161,8 +161,13 @@ state_tracker_t* state_tracker_init(const struct state_tracker_info *info)
    return tracker;
 
 error:
+   /* DELETED CODE
    RARCH_ERR("Allocation of state tracker info failed.\n");
+   */
    free(tracker);
+   /* ADDED CODE */
+   abort("Allocation of state tracker info failed.\n");
+   /* END OF ADDED CODE */
    return NULL;
 }
 
@@ -277,6 +282,7 @@ void state_tracker_update_input(uint16_t *input1, uint16_t *input2);
  * Returns: Amount of state elements (either equal to @elem
  * or equal to @tracker->info_eleme).
  **/
+/* REMOVED CODE
 unsigned state_tracker_get_uniform(state_tracker_t *tracker,
       struct state_tracker_uniform *uniforms,
       unsigned elem, unsigned frame_count)
@@ -295,3 +301,4 @@ unsigned state_tracker_get_uniform(state_tracker_t *tracker,
 
    return elems;
 }
+*/

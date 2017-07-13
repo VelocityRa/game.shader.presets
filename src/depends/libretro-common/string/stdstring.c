@@ -23,7 +23,10 @@
 #include <stdint.h>
 #include <ctype.h>
 
+/* ADDED CODE */
 #include <string/stdstring.h>
+/* END OF ADDED CODE */
+#include <compat/posix_string.h>
 
 bool string_is_empty(const char *data)
 {

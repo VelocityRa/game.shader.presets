@@ -227,8 +227,10 @@ bool video_shader_resolve_parameters(config_file_t *conf,
  * Returns: value of shader type on success, otherwise will return
  * user-supplied @fallback value. 
  **/
+ /* REMOVED CODE
 enum rarch_shader_type video_shader_parse_type(const char *path,
       enum rarch_shader_type fallback);
+*/
 
 RETRO_END_DECLS
 

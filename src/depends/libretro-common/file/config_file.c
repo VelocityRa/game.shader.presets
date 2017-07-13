@@ -110,7 +110,7 @@ static char *getaline(FILE *file)
       in = getc(file);
    }
    newline[idx] = '\0';
-   return newline;
+   return newline; 
 }
 
 static char *strip_comment(char *str)
@@ -245,7 +245,7 @@ static void add_child_list(config_file_t *parent, config_file_t *child)
    /* Rebase tail. */
    if (parent->entries)
    {
-      struct config_entry_list *head =
+      struct config_entry_list *head = 
          (struct config_entry_list*)parent->entries;
 
       while (head->next)
@@ -520,7 +520,7 @@ config_file_t *config_file_new_from_string(const char *from_string)
 
    conf->path = NULL;
    conf->include_depth = 0;
-
+   
    lines = string_split(from_string, "\n");
    if (!lines)
       return conf;
