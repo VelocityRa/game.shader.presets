@@ -68,6 +68,7 @@ set(SHADERPRESETS_HEADERS src/addon.h
                      src/utils/CommonMacros.h
                      src/utils/StringUtils.h
                      
+                     src/depends/file_path_special.h
                      src/depends/gfx/video_shader_parse.h
                      src/depends/gfx/video_state_tracker.h
                      src/depends/libretro-common/include/boolean.h

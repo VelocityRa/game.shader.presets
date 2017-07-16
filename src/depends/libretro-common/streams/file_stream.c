@@ -62,7 +62,9 @@
 #endif
 
 #include <streams/file_stream.h>
+ /* REMOVED CODE
 #include <memmap.h>
+*/
 #include <retro_miscellaneous.h>
 
 struct RFILE

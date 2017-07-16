@@ -46,11 +46,7 @@
 #include "config.h"
 #endif
 
-#include "configuration.h"
 #include "file_path_special.h"
-
-#include "paths.h"
-#include "verbosity.h"
 
 void fill_pathname_expand_special(char *out_path,
       const char *in_path, size_t size)

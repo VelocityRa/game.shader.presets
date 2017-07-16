@@ -29,7 +29,9 @@
 #endif
 #include <rhash.h>
 #include <retro_miscellaneous.h>
+/* REMOVED CODE
 #include <retro_endianness.h>
+*/
 #include <streams/file_stream.h>
 
 #define LSL32(x, n) ((uint32_t)(x) << (n))
@@ -74,7 +76,7 @@ static void sha256_init(struct sha256_ctx *p)
    memset(p, 0, sizeof(struct sha256_ctx));
    memcpy(p->h, T_H, sizeof(T_H));
 }
-
+/* REMOVED CODE
 static void sha256_block(struct sha256_ctx *p) 
 {
    unsigned i;
@@ -118,7 +120,7 @@ static void sha256_block(struct sha256_ctx *p)
    p->h[0] += a; p->h[1] += b; p->h[2] += c; p->h[3] += d;
    p->h[4] += e; p->h[5] += f; p->h[6] += g; p->h[7] += h;
 
-   /* Next block */
+   // Next block 
    p->inlen = 0;
 }
 
@@ -179,6 +181,7 @@ static void sha256_subhash(struct sha256_ctx *p, uint32_t *t)
  *
  * Hashes SHA256 and outputs a human readable string.
  **/
+ /* REMOVED CODE
 void sha256_hash(char *s, const uint8_t *in, size_t size)
 {
    unsigned i;
@@ -198,6 +201,7 @@ void sha256_hash(char *s, const uint8_t *in, size_t size)
    for (i = 0; i < 32; i++)
       snprintf(s + 2 * i, 3, "%02x", (unsigned)shahash.u8[i]);
 }
+*/
 
 #ifndef HAVE_ZLIB
 /* Zlib CRC32. */
