@@ -35,6 +35,16 @@
 
 using namespace SHADER;
 
+
+CShaderPreset::~CShaderPreset()
+{
+  CFilesystem::Deinitialize();
+
+  CLog::Get().SetType(SYS_LOG_TYPE_CONSOLE);
+}
+
+// CAddonBase overrides
+
 ADDON_STATUS CShaderPreset::Create()
 {
   CLog::Get().SetPipe(new CLogAddon());
@@ -55,21 +65,7 @@ ADDON_STATUS CShaderPreset::GetStatus()
   return ADDON_STATUS_OK;
 }
 
-CShaderPreset::~CShaderPreset()
-{
-  CFilesystem::Deinitialize();
-
-  CLog::Get().SetType(SYS_LOG_TYPE_CONSOLE);
-}
-
-
-int CShaderPreset::GetTest(unsigned int test_arg)
-{
-  CLog::Get().SetType(SYS_LOG_TYPE_ADDON);
-  CLog::Get().Log(SYS_LOG_INFO, "TESTING BINARY ADDON %d", test_arg);
-  
-  return test_arg + 5;
-}
+// CInstanceShaderPreset overrides
 
 // ======== CONFIG_FILE ========
 
@@ -90,31 +86,31 @@ void CShaderPreset::ConfigFileFree(config_file_t_ *conf)
 
 // ==== VIDEO_SHADER_PARSE =====
 
-bool CShaderPreset::VideoShaderReadCgp(config_file_t_ *conf, struct video_shader_ *shader)
+bool CShaderPreset::ShaderPresetRead(config_file_t_ *conf, struct video_shader_ *shader)
 {
   return video_shader_read_conf_cgp(
     reinterpret_cast<config_file_t*>(conf),
     reinterpret_cast<video_shader*>(shader));
 }
-void CShaderPreset::VideoShaderWriteCgp(config_file_t_ *conf, struct video_shader_ *shader)
+void CShaderPreset::ShaderPresetWrite(config_file_t_ *conf, struct video_shader_ *shader)
 {
   video_shader_write_conf_cgp(
     reinterpret_cast<config_file_t*>(conf),
     reinterpret_cast<video_shader*>(shader));
 }
-void CShaderPreset::VideoShaderResolveRelative(struct video_shader_ *shader, const char *ref_path)
+void CShaderPreset::ShaderPresetResolveRelative(struct video_shader_ *shader, const char *ref_path)
 {
   video_shader_resolve_relative(
     reinterpret_cast<video_shader*>(shader),
     ref_path);
 }
-bool CShaderPreset::VideoShaderResolveCurrentParameters(config_file_t_ *conf, struct video_shader_ *shader)
+bool CShaderPreset::ShaderPresetResolveCurrentParameters(config_file_t_ *conf, struct video_shader_ *shader)
 {
   return video_shader_resolve_current_parameters(
     reinterpret_cast<config_file_t*>(conf),
     reinterpret_cast<video_shader*>(shader));
 }
-bool CShaderPreset::VideoShaderResolveParameters(config_file_t_ *conf, struct video_shader_ *shader)
+bool CShaderPreset::ShaderPresetResolveParameters(config_file_t_ *conf, struct video_shader_ *shader)
 {
   return video_shader_resolve_parameters(
     reinterpret_cast<config_file_t*>(conf),

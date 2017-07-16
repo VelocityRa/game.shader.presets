@@ -1,6 +1,6 @@
 #pragma once
 /*
- *      Copyright (C) 2017 Nick Renieris
+ *      Copyright (C) 2017      Nick Renieris
  *      Copyright (C) 2014-2015 Garrett Brown
  *      Copyright (C) 2014-2015 Team XBMC
  *
@@ -32,21 +32,21 @@ public:
   CShaderPreset() {}
   virtual ~CShaderPreset();
 
+  // CAddonBase overrides
+
   virtual ADDON_STATUS Create() override;
   virtual ADDON_STATUS GetStatus() override;
   virtual ADDON_STATUS SetSetting(const std::string& settingName, const kodi::CSettingValue& settingValue) override;
 
-  // ===============================================
+  // CInstanceShaderPreset overrides
 
-  virtual int GetTest(unsigned int test_arg) override;
-    
   virtual config_file_t_* ConfigFileNew(const char *path) override;
   virtual config_file_t_* ConfigFileNewFromString(const char *from_string) override;
   virtual void ConfigFileFree(config_file_t_ *conf) override;
 
-  virtual bool VideoShaderReadCgp(config_file_t_ *conf, struct video_shader_ *shader) override;
-  virtual void VideoShaderWriteCgp(config_file_t_ *conf, struct video_shader_ *shader) override;
-  virtual void VideoShaderResolveRelative(struct video_shader_ *shader, const char *ref_path) override;
-  virtual bool VideoShaderResolveCurrentParameters(config_file_t_ *conf, struct video_shader_ *shader) override;
-  virtual bool VideoShaderResolveParameters(config_file_t_ *conf, struct video_shader_ *shader) override;
+  virtual bool ShaderPresetRead(config_file_t_ *conf, struct video_shader_ *shader) override;
+  virtual void ShaderPresetWrite(config_file_t_ *conf, struct video_shader_ *shader) override;
+  virtual void ShaderPresetResolveRelative(struct video_shader_ *shader, const char *ref_path) override;
+  virtual bool ShaderPresetResolveCurrentParameters(config_file_t_ *conf, struct video_shader_ *shader) override;
+  virtual bool ShaderPresetResolveParameters(config_file_t_ *conf, struct video_shader_ *shader) override;
 };
