@@ -1,0 +1,6 @@
+[submodule "libretro/cg"]
+	path = libretro/cg
+	url = https://github.com/libretro/common-shaders.git
+[submodule "libretro/glsl"]
+	path = libretro/glsl
+	url = https://github.com/libretro/glsl-shaders.git
