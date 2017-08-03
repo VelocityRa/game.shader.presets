@@ -286,5 +286,13 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
+# IDE ignorables
+.clang_complete
+.cproject
+.project
+.settings
+
 # Pre-generated XML
 game.shader.presets/addon.xml
+
+build
