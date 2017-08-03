@@ -41,8 +41,10 @@ public:
   // CInstanceShaderPreset overrides
 
   /* Loads a config file. Returns NULL if file doesn't exist.
-  * NULL path will create an empty config file. */
-  virtual config_file_t_* ConfigFileNew(const char *path) override;
+  * NULL path will create an empty config file.
+  * Second arg saves its base path.
+   */
+  virtual config_file_t_* ConfigFileNew(const char *path, const char *basePath) override;
 
   /* Load a config file from a string. */
   virtual config_file_t_* ConfigFileNewFromString(const char *from_string) override;
@@ -54,6 +56,8 @@ public:
   * ShaderPresetRead:
   * @conf              : Preset file to read from.
   * @shader            : Shader passes handle.
+  * @addonPath         : Add-on's path, so that shader source is loaded.
+  *                      If nullptr, shader source isn't loaded.
   *
   * Loads preset file and all associated state (passes,
   * textures, imports, etc).
@@ -103,4 +107,9 @@ public:
   * Returns: true (1) if successful, otherwise false (0).
   **/
   virtual bool ShaderPresetResolveParameters(config_file_t_ *conf, struct video_shader_ *shader) override;
+
+private:
+
+  // Base path of shader preset
+  std::string m_basePath;
 };
