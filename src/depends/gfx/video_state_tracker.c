@@ -165,8 +165,6 @@ error:
    RARCH_ERR("Allocation of state tracker info failed.\n");
    */
    free(tracker);
-   /* ADDED CODE */
-   abort("Allocation of state tracker info failed.\n");
    /* END OF ADDED CODE */
    return NULL;
 }
