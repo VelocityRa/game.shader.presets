@@ -1,0 +1,109 @@
+# XBMC Media Center language file
+# Addon Name: Default controller
+# Addon id: game.shader.presets
+# Addon Provider: Team Kodi
+msgid ""
+msgstr ""
+"Project-Id-Version: Libretro Clients\n"
+"Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
+"POT-Creation-Date: 2017-08-02 23:00+8\n"
+"PO-Revision-Date: 2017-08-03 13:00+8\n"
+"Last-Translator: Nick Renieris\n"
+"Language-Team: English (http://www.transifex.com/projects/p/xbmc-addons/language/en/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#30000"
+msgid "Game Boy Filter"
+msgstr ""
+
+msgctxt "#30001"
+msgid "Game Boy"
+msgstr ""
+
+msgctxt "#30002"
+msgid "Replicates the dot matrix screen of a Game Boy, complete with the ghosting problems to reproduce certain visual effects."
+msgstr ""
+
+msgctxt "#30003"
+msgid "CRT Display"
+msgstr ""
+
+msgctxt "#30004"
+msgid "CRT"
+msgstr ""
+
+msgctxt "#30005"
+msgid "Emulates a CRT display. Basic. Features scan-lines, color correction, gamma correction and sharpening."
+msgstr ""
+
+msgctxt "#30006"
+msgid "CRT Display (Hylian)"
+msgstr ""
+
+msgctxt "#30007"
+msgid "Emulates a CRT display. Advanced and fast. Aims only for picture quality, so it avoids effects that degrade the image. Features scan-lines, color correction, gamma correction, sharpening, CRT phosphor and CRT beam effects."
+msgstr ""
+
+msgctxt "#30008"
+msgid "CRT Display (Royale)"
+msgstr ""
+
+msgctxt "#30009"
+msgid "Emulates a CRT display. Highly advanced multi-pass shader. Resource intensive. Features scan-lines, color correction, gamma correction, sharpening, CRT phosphor emulation, halation, refractive diffusion, curvature and anti-aliasing."
+msgstr ""
+
+msgctxt "#30010"
+msgid "NTSC Filter"
+msgstr ""
+
+msgctxt "#30011"
+msgid "NTSC"
+msgstr ""
+
+msgctxt "#30012"
+msgid "Replicates the analog signals that the consoles output to the TV. Feature color distortion, blurring, NTSC color artifacts and dot crawl."
+msgstr ""
+
+msgctxt "#30013"
+msgid "Analog Video"
+msgstr ""
+
+msgctxt "#30014"
+msgid "NTSC/TV-out"
+msgstr ""
+
+msgctxt "#30015"
+msgid "Replicates the analog signals that the consoles output to the TV. 256px downscale resolution. Emulates S-Video connector. Features color distortion, blurring, NTSC color artifacts."
+msgstr ""
+
+msgctxt "#30016"
+msgid "Replicates the analog signals that the consoles output to the TV. 256px downscale resolution. Emulates composite connector. Features color distortion, blurring, NTSC color artifacts."
+msgstr ""
+
+msgctxt "#30017"
+msgid "Replicates the analog signals that the consoles output to the TV. 320px downscale resolution. Emulates S-Video connector. Features color distortion, blurring, NTSC color artifacts."
+msgstr ""
+
+msgctxt "#30018"
+msgid "Smoothing Shader"
+msgstr ""
+
+msgctxt "#30019"
+msgid "Smoothing (xBR-lv2)"
+msgstr ""
+
+msgctxt "#30020"
+msgid "Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale, by detecting edges and interpolating pixels along them."
+msgstr ""
+
+msgctxt "#30021"
+msgid "Smoothing (xBR-mlv4)"
+msgstr ""
+
+msgctxt "#30022"
+msgid "Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale, by detecting edges and interpolating pixels along them. Latest evolution of the standard xBR algorithm. The interpolation blends pixel colors, so that the final image is smoother than the other versions."
+msgstr ""

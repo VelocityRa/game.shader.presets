@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<presets>
+    <preset>
+        <path>cgp/gameboy-screen-grid.cgp</path>
+        <!-- Game Boy Filter -->
+        <name>30000</name>
+        <!-- Game Boy -->
+        <category>30001</category>
+        <!-- Replicates the dot matrix screen of a Game Boy, complete with the ghosting problems to reproduce certain visual effects. -->
+        <description>30002</description>
+    </preset>
+    <preset>
+        <path>crt/4xbr-hybrid-crt-b.cgp</path>
+        <!-- CRT Display -->
+        <name>30003</name>
+        <!-- CRT -->
+        <category>30004</category>
+        <!-- Emulates a CRT display. Basic. Features scan-lines, color correction, gamma correction and sharpening. -->
+        <description>30005</description>
+    </preset>
+    <preset>
+        <path>crt/crt-hyllian-multipass.cgp</path>
+        <!-- CRT Display (Hylian) -->
+        <name>30006</name>
+        <!-- CRT -->
+        <category>30004</category>
+        <!-- Emulates a CRT display. Advanced and fast. Aims only for picture quality, so it avoids effects that degrade the image. Features scan-lines, color correction, gamma correction, sharpening, CRT phosphor and CRT beam effects. -->
+        <description>30007</description>
+    </preset>
+    <preset>
+        <path>cgp/crt-royale-kurozumi.cgp</path>
+        <!-- CRT Display (Royale) -->
+        <name>30008</name>
+        <!-- CRT -->
+        <category>30004</category>
+        <!-- Emulates a CRT display. Highly advanced multi-pass shader. Resource intensive. Features scan-lines, color correction, gamma correction, sharpening, CRT phosphor emulation, halation, refractive diffusion, curvature and anti-aliasing. -->
+        <description>30009</description>
+    </preset>
+    <preset>
+        <path>ntsc/ntcs.cgp</path>
+        <!-- NTSC Filter -->
+        <name>30010</name>
+        <!-- NTSC -->
+        <category>30011</category>
+        <!-- Replicates the analog signals that the consoles output to the TV. Features color distortion, blurring, NTSC color artifacts and dot crawl. -->
+        <description>30012</description>
+    </preset>
+    <preset>
+        <path>cgp/tvout/tvout+ntsc-256px-svideo.cgp</path>
+        <!-- Analog Video -->
+        <name>30013</name>
+        <!-- NTSC/TV-out -->
+        <category>30014</category>
+        <!-- Replicates the analog signals that the consoles output to the TV. 256px downscale resolution. Emulates S-Video connector. Features color distortion, blurring, NTSC color artifacts. -->
+        <description>30015</description>
+    </preset>
+    <preset>
+        <path>cgp/tvout/tvout+ntsc-256px-composite.cgp</path>
+        <!-- Analog Video -->
+        <name>30013</name>
+        <!-- NTSC/TV-out -->
+        <category>30014</category>
+        <!-- Replicates the analog signals that the consoles output to the TV. 256px downscale resolution. Emulates composite connector. Features color distortion, blurring, NTSC color artifacts. -->
+        <description>30016</description>
+    </preset>
+    <preset>
+        <path>cgp/tvout/tvout+ntsc-320px-svideo.cgp</path>
+        <!-- Analog Video -->
+        <name>30013</name>
+        <!-- NTSC/TV-out -->
+        <category>30014</category>
+        <!-- Replicates the analog signals that the consoles output to the TV. 320px downscale resolution. Emulates S-Video connector. Features color distortion, blurring, NTSC color artifacts. -->
+        <description>30017</description>
+    </preset>
+    <preset>
+        <path>xbr/xbr-lv2-fast.cgp</path>
+        <!-- Smoothing Shader -->
+        <name>30018</name>
+        <!-- Smoothing (xBR-lv2) -->
+        <category>30019</category>
+        <!-- Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale, by detecting edges and interpolating pixels along them. -->
+        <description>30020</description>
+    </preset>
+    <preset>
+        <path>xbr/xbr-mlv4-multipass.cgp</path>
+        <!-- Smoothing Shader -->
+        <name>30018</name>
+        <!-- Smoothing (xBR-mlv4) -->
+        <category>30021</category>
+        <!-- Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale, by detecting edges and interpolating pixels along them. Latest evolution of the standard xBR algorithm. The interpolation blends pixel colors, so that the final image is smoother than the other versions. -->
+        <description>30022</description>
+    </preset>
+</presets>
