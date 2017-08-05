@@ -21,6 +21,7 @@
 
 #include <stdarg.h>
 #include <string>
+#include <vector>
 
 namespace SHADER
 {
@@ -75,5 +76,26 @@ namespace SHADER
     */
     static std::string Format(const char* fmt, ...);
     static std::string FormatV(const char* fmt, va_list args);
+
+    /*! \brief Split a string by the specified delimiters.
+    Splits a string using one or more delimiting characters, ignoring empty tokens.
+    Differs from Split() in two ways:
+    1. The delimiters are treated as individual characters, rather than a single delimiting string.
+    2. Empty tokens are ignored.
+    \return a vector of tokens
+    */
+    static void Tokenize(const std::string& input, std::vector<std::string>& tokens, const std::string& delimiters);
+
+    template<typename CONTAINER>
+    static std::string Join(const CONTAINER &strings, const std::string& delimiter)
+    {
+       std::string result;
+       for (const auto& str : strings)
+          result += str + delimiter;
+
+       if (!result.empty())
+          result.erase(result.size() - delimiter.size());
+       return result;
+    }
   };
 }

@@ -177,3 +177,19 @@ std::string StringUtils::FormatV(const char* fmt, va_list args)
 
   return ""; // unreachable
 }
+
+void StringUtils::Tokenize(const std::string& input, std::vector<std::string>& tokens, const std::string& delimiters)
+{
+   tokens.clear();
+   // Skip delimiters at beginning.
+   std::string::size_type dataPos = input.find_first_not_of(delimiters);
+   while (dataPos != std::string::npos)
+   {
+      // Find next delimiter
+      const std::string::size_type nextDelimPos = input.find_first_of(delimiters, dataPos);
+      // Found a token, add it to the vector.
+      tokens.push_back(input.substr(dataPos, nextDelimPos - dataPos));
+      // Skip delimiters.  Note the "not_of"
+      dataPos = input.find_first_not_of(delimiters, nextDelimPos);
+   }
+}
