@@ -21,19 +21,20 @@
 
 #include "addon.h"
 
-#include "utils/CommonIncludes.h"
-#include "utils/CommonMacros.h"
+#include "file/config_file.h"
 #include "filesystem/Filesystem.h"
+#include "gfx/video_shader_parse.h"
 #include "log/Log.h"
 #include "log/LogAddon.h"
-#include "file/config_file.h"
-#include "gfx/video_shader_parse.h"
+#include "utils/CommonIncludes.h"
+#include "utils/CommonMacros.h"
+#include "utils/URIUtils.h"
 
 #include <algorithm>
-#include <vector>
-#include <memory>
 #include <fstream>
+#include <memory>
 #include <streams/file_stream.h>
+#include <vector>
 
 using namespace SHADER;
 
@@ -108,8 +109,11 @@ bool CShaderPreset::ShaderPresetRead(config_file_t_* conf, video_shader_* shader
       char* shaderSource = nullptr;
       std::string relativePresetPath = pass.source.path;
       std::string absolutePresetPath = m_basePath + relativePresetPath;
-      std::replace(absolutePresetPath.begin(), absolutePresetPath.end(), '\\', '/');
 
+      // Fix windows paths
+      std::replace(absolutePresetPath.begin(), absolutePresetPath.end(), '\\', '/');
+      // Resolve relative paths ("../")
+      absolutePresetPath = URIUtils::CanonicalizePath(absolutePresetPath, '/');
       int readResult = filestream_read_file(absolutePresetPath.c_str(),
         reinterpret_cast<void**>(&shaderSource), nullptr);
       if (readResult == -1)
