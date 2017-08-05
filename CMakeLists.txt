@@ -32,6 +32,7 @@ set(SHADERPRESETS_SOURCES src/addon.cpp
                      src/log/LogAddon.cpp
                      src/log/LogConsole.cpp
                      src/utils/StringUtils.cpp
+                     src/utils/URIUtils.cpp
                      
                      src/depends/file_path_special.c
                      src/depends/gfx/video_shader_parse.c
@@ -67,6 +68,7 @@ set(SHADERPRESETS_HEADERS src/addon.h
                      src/utils/CommonIncludes.h
                      src/utils/CommonMacros.h
                      src/utils/StringUtils.h
+                     src/utils/URIUtils.h
                      
                      src/depends/file_path_special.h
                      src/depends/gfx/video_shader_parse.h
