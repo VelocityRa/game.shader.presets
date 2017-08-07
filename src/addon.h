@@ -52,7 +52,7 @@ public:
   /* Frees config file. */
   virtual void ConfigFileFree(config_file_t_ *conf) override;
 
-  /**
+   /**
   * ShaderPresetRead:
   * @conf              : Preset file to read from.
   * @shader            : Shader passes handle.
@@ -109,6 +109,7 @@ public:
   virtual bool ShaderPresetResolveParameters(config_file_t_ *conf, struct video_shader_ *shader) override;
 
 private:
+  void GetAbsolutePassPath(video_shader_pass_& pass, char destPath[]);
 
   // Base path of shader preset
   std::string m_basePath;

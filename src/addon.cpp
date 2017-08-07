@@ -92,6 +92,21 @@ void CShaderPreset::ConfigFileFree(config_file_t_* conf)
 
 // ==== VIDEO_SHADER_PARSE =====
 
+void CShaderPreset::GetAbsolutePassPath(video_shader_pass_& pass, char destPath[])
+{
+  std::string relativePresetPath = pass.source.path;
+  std::string absolutePresetPath = m_basePath + relativePresetPath;
+
+  // Fix windows paths
+  std::replace(absolutePresetPath.begin(), absolutePresetPath.end(), '\\', '/');
+  // Resolve relative paths ("../")
+  absolutePresetPath = URIUtils::CanonicalizePath(absolutePresetPath, '/');
+
+  unsigned pathLen = absolutePresetPath.size();
+  if(pathLen < PATH_MAX_LENGTH)
+    strncpy(destPath, absolutePresetPath.c_str(), pathLen);
+}
+
 bool CShaderPreset::ShaderPresetRead(config_file_t_* conf, video_shader_* shader)
 {
   {
@@ -107,14 +122,10 @@ bool CShaderPreset::ShaderPresetRead(config_file_t_* conf, video_shader_* shader
     {
       auto& pass = shader->pass[passIdx];
       char* shaderSource = nullptr;
-      std::string relativePresetPath = pass.source.path;
-      std::string absolutePresetPath = m_basePath + relativePresetPath;
 
-      // Fix windows paths
-      std::replace(absolutePresetPath.begin(), absolutePresetPath.end(), '\\', '/');
-      // Resolve relative paths ("../")
-      absolutePresetPath = URIUtils::CanonicalizePath(absolutePresetPath, '/');
-      int readResult = filestream_read_file(absolutePresetPath.c_str(),
+      // Read shader sources
+      GetAbsolutePassPath(pass, pass.source.path);
+      int readResult = filestream_read_file(pass.source.path,
         reinterpret_cast<void**>(&shaderSource), nullptr);
       if (readResult == -1)
         return false;
