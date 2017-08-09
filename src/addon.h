@@ -108,6 +108,14 @@ public:
   **/
   virtual bool ShaderPresetResolveParameters(config_file_t_ *conf, struct video_shader_ *shader) override;
 
+  /**
+  * FreePresetFile
+  * \shader shader Object to free.
+  *
+  * Frees all state related to shader
+  */
+  virtual void ShaderPresetFree(struct video_shader_* shader) override;
+
 private:
   void GetAbsolutePassPath(video_shader_pass_& pass, char destPath[]);
 

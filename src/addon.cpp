@@ -166,4 +166,15 @@ bool CShaderPreset::ShaderPresetResolveParameters(config_file_t_* conf, struct v
     reinterpret_cast<video_shader*>(shader));
 }
 
+void CShaderPreset::ShaderPresetFree(struct video_shader_ * shader)
+{
+  video_shader* shader_ = reinterpret_cast<video_shader*>(shader);
+
+  for (unsigned passIdx = 0; passIdx < shader_->passes; ++passIdx)
+  {
+    auto& pass = shader_->pass[passIdx];
+    free(pass.source.string.vertex);  // .fragment points to the same string
+  }
+}
+
 ADDONCREATOR(CShaderPreset) // Don't touch this!
