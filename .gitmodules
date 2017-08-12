@@ -1,6 +1,6 @@
 [submodule "libretro/hlsl"]
-	path = libretro/hlsl
+	path = game.shader.presets/resources/libretro/hlsl
 	url = https://github.com/libretro/common-shaders.git
 [submodule "libretro/glsl"]
-	path = libretro/glsl
+	path = game.shader.presets/resources/libretro/glsl
 	url = https://github.com/libretro/glsl-shaders.git
