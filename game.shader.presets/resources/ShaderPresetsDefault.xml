@@ -37,7 +37,7 @@
         <description>30009</description>
     </preset>
     <preset>
-        <path>ntsc/ntcs.cgp</path>
+        <path>ntsc/ntsc.cgp</path>
         <!-- NTSC Filter -->
         <name>30010</name>
         <!-- NTSC -->

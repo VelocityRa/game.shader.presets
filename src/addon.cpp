@@ -38,7 +38,6 @@
 
 using namespace SHADER;
 
-
 CShaderPreset::~CShaderPreset()
 {
   CFilesystem::Deinitialize();
@@ -130,7 +129,7 @@ bool CShaderPreset::ShaderPresetRead(config_file_t_* conf, video_shader_* shader
       if (readResult == -1)
         return false;
 
-      // Assign same source to both fields, just make sure we don't double free on Kodi's side
+      // Assign same source to both fields, just make sure we don't double free in ShaderPresetFree
       pass.source.string.fragment = shaderSource;
       pass.source.string.vertex = shaderSource;
     }
