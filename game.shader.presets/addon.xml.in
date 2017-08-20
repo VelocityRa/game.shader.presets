@@ -7,7 +7,8 @@
   <requires>@ADDON_DEPENDS@</requires>
   <extension
     point="kodi.shader.presets"
-    library_@PLATFORM@="@LIBRARY_FILENAME@"/>
+    library_@PLATFORM@="@LIBRARY_FILENAME@"
+    extensions="cgp|glslp|hlslp"/>
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Shader Preset Support</summary>
     <description lang="en">This library provides support for libretro "meta" shaders, or .cgp files.</description>
