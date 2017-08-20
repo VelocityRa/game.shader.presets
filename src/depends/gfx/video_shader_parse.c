@@ -134,7 +134,7 @@ static enum gfx_wrap_type wrap_str_to_mode(const char *wrap_mode)
  * Returns: true (1) if successful, otherwise false (0).
  **/
 static bool video_shader_parse_pass(config_file_t *conf,
-      struct video_shader_pass *pass, unsigned i)
+      struct rarch_video_shader_pass *pass, unsigned i)
 {
    char tmp_str[PATH_MAX_LENGTH];
    char tmp_path[PATH_MAX_LENGTH];
@@ -349,7 +349,7 @@ static bool video_shader_parse_pass(config_file_t *conf,
  * Returns: true (1) if successful, otherwise false (0).
  **/
 static bool video_shader_parse_textures(config_file_t *conf,
-      struct video_shader *shader)
+      struct rarch_video_shader *shader)
 {
    char textures[1024];
    const char *id       = NULL;
@@ -424,8 +424,8 @@ static bool video_shader_parse_textures(config_file_t *conf,
  *
  * Returns: handle to shader parameter if successful, otherwise NULL.
  **/
-static struct video_shader_parameter *video_shader_parse_find_parameter(
-      struct video_shader_parameter *params,
+static struct rarch_video_shader_parameter *video_shader_parse_find_parameter(
+      struct rarch_video_shader_parameter *params,
       unsigned num_params, const char *id)
 {
    unsigned i;
@@ -449,7 +449,7 @@ static struct video_shader_parameter *video_shader_parse_find_parameter(
  * Returns: true (1) if successful, otherwise false (0).
  **/
 bool video_shader_resolve_current_parameters(config_file_t *conf,
-      struct video_shader *shader)
+      struct rarch_video_shader *shader)
 {
    char parameters[4096];
    const char *id        = NULL;
@@ -468,7 +468,7 @@ bool video_shader_resolve_current_parameters(config_file_t *conf,
    for (id = strtok_r(parameters, ";", &save); id; 
          id = strtok_r(NULL, ";", &save))
    {
-      struct video_shader_parameter *parameter = (struct video_shader_parameter*)
+      struct rarch_video_shader_parameter *parameter = (struct rarch_video_shader_parameter*)
          video_shader_parse_find_parameter(shader->parameters, shader->num_parameters, id);
 
       if (!parameter)
@@ -493,10 +493,10 @@ bool video_shader_resolve_current_parameters(config_file_t *conf,
  * Returns: true (1) if successful, otherwise false (0).
  **/
 bool video_shader_resolve_parameters(config_file_t *conf,
-      struct video_shader *shader)
+      struct rarch_video_shader *shader)
 {
    unsigned i;
-   struct video_shader_parameter *param = &shader->parameters[0];
+   struct rarch_video_shader_parameter *param = &shader->parameters[0];
 
    shader->num_parameters = 0;
 
@@ -568,7 +568,7 @@ bool video_shader_resolve_parameters(config_file_t *conf,
  * Returns: true (1) if successful, otherwise false (0).
  **/
 static bool video_shader_parse_imports(config_file_t *conf,
-      struct video_shader *shader)
+      struct rarch_video_shader *shader)
 {
    char imports[1024];
    char tmp_str[PATH_MAX_LENGTH];
@@ -699,7 +699,7 @@ static bool video_shader_parse_imports(config_file_t *conf,
  *
  * Returns: true (1) if successful, otherwise false (0).
  **/
-bool video_shader_read_conf_cgp(config_file_t *conf, struct video_shader *shader)
+bool video_shader_read_conf_cgp(config_file_t *conf, struct rarch_video_shader *shader)
 {
    unsigned shaders, i;
 
@@ -883,7 +883,7 @@ static void shader_write_variable(config_file_t *conf,
  * textures, imports, etc) to disk. 
  **/
 void video_shader_write_conf_cgp(config_file_t *conf,
-      struct video_shader *shader)
+      struct rarch_video_shader *shader)
 {
    unsigned i;
 
@@ -895,7 +895,7 @@ void video_shader_write_conf_cgp(config_file_t *conf,
    {
       char key[64];
       char tmp[PATH_MAX_LENGTH];
-      const struct video_shader_pass *pass = &shader->pass[i];
+      const struct rarch_video_shader_pass *pass = &shader->pass[i];
 
       key[0] = '\0';
 
@@ -1062,7 +1062,7 @@ enum rarch_shader_type video_shader_parse_type(const char *path,
  * Resolves relative shader path (@ref_path) into absolute
  * shader paths.
  **/
-void video_shader_resolve_relative(struct video_shader *shader,
+void video_shader_resolve_relative(struct rarch_video_shader *shader,
       const char *ref_path)
 {
    unsigned i;

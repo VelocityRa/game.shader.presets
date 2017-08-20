@@ -26,15 +26,9 @@
 #include "gfx/video_shader_parse.h"
 #include "log/Log.h"
 #include "log/LogAddon.h"
-#include "utils/CommonIncludes.h"
-#include "utils/CommonMacros.h"
-#include "utils/URIUtils.h"
+#include "utils/RarchTranslator.h"
 
-#include <algorithm>
-#include <fstream>
-#include <memory>
 #include <streams/file_stream.h>
-#include <vector>
 
 using namespace SHADER;
 
@@ -67,113 +61,100 @@ ADDON_STATUS CShaderPreset::GetStatus()
   return ADDON_STATUS_OK;
 }
 
-// CInstanceShaderPreset overrides
-
-// ======== CONFIG_FILE ========
-
-config_file_t_* CShaderPreset::ConfigFileNew(const char* path, const char* basePath)
+config_file* CShaderPreset::ConfigFileNew(const char *path)
 {
-  m_basePath = basePath;
-  return reinterpret_cast<config_file_t_*>(config_file_new(path));
+  return static_cast<config_file*>(config_file_new(path));
 }
 
-config_file_t_* CShaderPreset::ConfigFileNewFromString(const char* from_string)
+void CShaderPreset::ConfigFileFree(config_file *conf)
 {
-  return reinterpret_cast<config_file_t_*>(config_file_new_from_string(from_string));
+  config_file_free(static_cast<config_file_t*>(conf));
 }
 
-void CShaderPreset::ConfigFileFree(config_file_t_* conf)
+bool CShaderPreset::ShaderPresetRead(config_file *conf, video_shader &shader)
 {
-  config_file_free(reinterpret_cast<config_file_t*>(conf));
-}
+  rarch_video_shader rarch_shader;
 
-// =============================
+  bool readResult = video_shader_read_conf_cgp(static_cast<config_file_t*>(conf), &rarch_shader);
+  if (!readResult)
+    return false;
 
-// ==== VIDEO_SHADER_PARSE =====
+  CRarchTranslator::TranslateShader(rarch_shader, shader);
 
-void CShaderPreset::GetAbsolutePassPath(video_shader_pass_& pass, char destPath[])
-{
-  std::string relativePresetPath = pass.source.path;
-  std::string absolutePresetPath = m_basePath + relativePresetPath;
-
-  // Fix windows paths
-  std::replace(absolutePresetPath.begin(), absolutePresetPath.end(), '\\', '/');
-  // Resolve relative paths ("../")
-  absolutePresetPath = URIUtils::CanonicalizePath(absolutePresetPath, '/');
-
-  unsigned pathLen = absolutePresetPath.size();
-  if(pathLen < PATH_MAX_LENGTH)
-    strncpy(destPath, absolutePresetPath.c_str(), pathLen);
-}
-
-bool CShaderPreset::ShaderPresetRead(config_file_t_* conf, video_shader_* shader)
-{
+  for (unsigned passIdx = 0; passIdx < shader.pass_count; ++passIdx)
   {
-    bool readResult = video_shader_read_conf_cgp(
-      reinterpret_cast<config_file_t*>(conf),
-      reinterpret_cast<video_shader*>(shader));
-    if (!readResult)
-      return false;
-  }
-  if (!m_basePath.empty())
-  {
-    for (unsigned passIdx = 0; passIdx < shader->passes; ++passIdx)
+    auto& pass = shader.passes[passIdx];
+    pass.vertex_source = nullptr;
+    pass.fragment_source = nullptr;
+
+    // Read shader sources
+    int readResult = filestream_read_file(pass.source_path, reinterpret_cast<void**>(&pass.vertex_source), nullptr);
+    if (readResult == -1)
     {
-      auto& pass = shader->pass[passIdx];
-      char* shaderSource = nullptr;
-
-      // Read shader sources
-      GetAbsolutePassPath(pass, pass.source.path);
-      int readResult = filestream_read_file(pass.source.path,
-        reinterpret_cast<void**>(&shaderSource), nullptr);
-      if (readResult == -1)
-        return false;
-
-      // Assign same source to both fields, just make sure we don't double free in ShaderPresetFree
-      pass.source.string.fragment = shaderSource;
-      pass.source.string.vertex = shaderSource;
+      ShaderPresetFree(shader);
+      return false;
     }
   }
+
   return true;
 }
 
-void CShaderPreset::ShaderPresetWrite(config_file_t_* conf, struct video_shader_* shader)
+void CShaderPreset::ShaderPresetWrite(config_file *conf, const video_shader &shader)
 {
-  video_shader_write_conf_cgp(
-    reinterpret_cast<config_file_t*>(conf),
-    reinterpret_cast<video_shader*>(shader));
+  rarch_video_shader rarch_shader;
+
+  CRarchTranslator::TranslateShader(shader, rarch_shader);
+
+  video_shader_write_conf_cgp(static_cast<config_file_t*>(conf), &rarch_shader);
+
+  CRarchTranslator::FreeShader(rarch_shader);
 }
 
-void CShaderPreset::ShaderPresetResolveRelative(struct video_shader_* shader, const char* ref_path)
+bool CShaderPreset::ShaderPresetResolveParameters(config_file *conf, video_shader &shader)
 {
-  video_shader_resolve_relative(
-    reinterpret_cast<video_shader*>(shader),
-    ref_path);
-}
+  rarch_video_shader rarch_shader;
 
-bool CShaderPreset::ShaderPresetResolveCurrentParameters(config_file_t_* conf, struct video_shader_* shader)
-{
-  return video_shader_resolve_current_parameters(
-    reinterpret_cast<config_file_t*>(conf),
-    reinterpret_cast<video_shader*>(shader));
-}
+  CRarchTranslator::TranslateShader(shader, rarch_shader);
 
-bool CShaderPreset::ShaderPresetResolveParameters(config_file_t_* conf, struct video_shader_* shader)
-{
-  return video_shader_resolve_parameters(
-    reinterpret_cast<config_file_t*>(conf),
-    reinterpret_cast<video_shader*>(shader));
-}
+  bool bSuccess = video_shader_resolve_parameters(static_cast<config_file_t*>(conf), &rarch_shader);
 
-void CShaderPreset::ShaderPresetFree(struct video_shader_ * shader)
-{
-  video_shader* shader_ = reinterpret_cast<video_shader*>(shader);
-
-  for (unsigned passIdx = 0; passIdx < shader_->passes; ++passIdx)
+  if (bSuccess)
   {
-    auto& pass = shader_->pass[passIdx];
-    free(pass.source.string.vertex);  // .fragment points to the same string
+    ShaderPresetFree(shader);
+    CRarchTranslator::TranslateShader(rarch_shader, shader);
   }
+
+  CRarchTranslator::FreeShader(rarch_shader);
+
+  return bSuccess;
+}
+
+void CShaderPreset::ShaderPresetFree(video_shader &shader)
+{
+  for (unsigned int i = 0; i < shader.pass_count; i++)
+  {
+    auto &pass = shader.passes[i];
+    delete[] pass.source_path;
+    delete[] pass.vertex_source;
+    delete[] pass.fragment_source;
+  }
+  delete[] shader.passes;
+
+  for (unsigned int i = 0; i < shader.lut_count; i++)
+  {
+    auto &lut = shader.luts[i];
+    delete[] lut.id;
+    delete[] lut.path;
+  }
+  delete[] shader.luts;
+
+  for (unsigned int i = 0; i < shader.parameter_count; i++)
+  {
+    auto &parameter = shader.parameters[i];
+    delete[] parameter.id;
+    delete[] parameter.desc;
+  }
+  delete[] shader.parameters;
 }
 
 ADDONCREATOR(CShaderPreset) // Don't touch this!

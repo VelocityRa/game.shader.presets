@@ -31,6 +31,7 @@ set(SHADERPRESETS_SOURCES src/addon.cpp
                      src/log/Log.cpp
                      src/log/LogAddon.cpp
                      src/log/LogConsole.cpp
+                     src/utils/RarchTranslator.cpp
                      src/utils/StringUtils.cpp
                      src/utils/URIUtils.cpp
                      
@@ -67,6 +68,7 @@ set(SHADERPRESETS_HEADERS src/addon.h
                      src/log/LogConsole.h
                      src/utils/CommonIncludes.h
                      src/utils/CommonMacros.h
+                     src/utils/RarchTranslator.h
                      src/utils/StringUtils.h
                      src/utils/URIUtils.h
                      

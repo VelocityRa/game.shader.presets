@@ -88,7 +88,7 @@ struct gfx_fbo_scale
    bool valid;
 };
 
-struct video_shader_parameter
+struct rarch_video_shader_parameter
 {
    char id[64];
    char desc[64];
@@ -99,7 +99,7 @@ struct video_shader_parameter
    float step;
 };
 
-struct video_shader_pass
+struct rarch_video_shader_pass
 {
    struct
    {
@@ -119,7 +119,7 @@ struct video_shader_pass
    bool mipmap;
 };
 
-struct video_shader_lut
+struct rarch_video_shader_lut
 {
    char id[64];
    char path[PATH_MAX_LENGTH];
@@ -130,7 +130,7 @@ struct video_shader_lut
 
 /* This is pretty big, shouldn't be put on the stack.
  * Avoid lots of allocation for convenience. */
-struct video_shader
+struct rarch_video_shader
 {
    enum rarch_shader_type type;
 
@@ -138,12 +138,12 @@ struct video_shader
    char prefix[64];
 
    unsigned passes;
-   struct video_shader_pass pass[GFX_MAX_SHADERS];
+   struct rarch_video_shader_pass pass[GFX_MAX_SHADERS];
 
    unsigned luts;
-   struct video_shader_lut lut[GFX_MAX_TEXTURES];
+   struct rarch_video_shader_lut lut[GFX_MAX_TEXTURES];
 
-   struct video_shader_parameter parameters[GFX_MAX_PARAMETERS];
+   struct rarch_video_shader_parameter parameters[GFX_MAX_PARAMETERS];
    unsigned num_parameters;
 
    unsigned variables;
@@ -168,7 +168,7 @@ struct video_shader
  * Returns: true (1) if successful, otherwise false (0).
  **/
 bool video_shader_read_conf_cgp(config_file_t *conf,
-      struct video_shader *shader);
+      struct rarch_video_shader *shader);
 
 /** 
  * video_shader_write_conf_cgp:
@@ -179,7 +179,7 @@ bool video_shader_read_conf_cgp(config_file_t *conf,
  * textures, imports, etc) to disk. 
  **/
 void video_shader_write_conf_cgp(config_file_t *conf,
-      struct video_shader *shader);
+      struct rarch_video_shader *shader);
 
 /**
  * video_shader_resolve_relative:
@@ -189,7 +189,7 @@ void video_shader_write_conf_cgp(config_file_t *conf,
  * Resolves relative shader path (@ref_path) into absolute
  * shader paths.
  **/
-void video_shader_resolve_relative(struct video_shader *shader,
+void video_shader_resolve_relative(struct rarch_video_shader *shader,
       const char *ref_path);
 
 /** 
@@ -202,7 +202,7 @@ void video_shader_resolve_relative(struct video_shader *shader,
  * Returns: true (1) if successful, otherwise false (0).
  **/
 bool video_shader_resolve_current_parameters(config_file_t *conf,
-      struct video_shader *shader);
+      struct rarch_video_shader *shader);
 
 /** 
  * video_shader_resolve_parameters:
@@ -214,7 +214,7 @@ bool video_shader_resolve_current_parameters(config_file_t *conf,
  * Returns: true (1) if successful, otherwise false (0).
  **/
 bool video_shader_resolve_parameters(config_file_t *conf,
-      struct video_shader *shader);
+      struct rarch_video_shader *shader);
 
 /**
  * video_shader_parse_type:
