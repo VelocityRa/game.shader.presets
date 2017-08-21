@@ -37,7 +37,6 @@
    printf("[LOG] game.shader.presets :: " __VA_ARGS__); \
 } while(0)
 #define RARCH_WARN(...) do { \
-   assert(0); \
    printf("[WARN] game.shader.presets :: " __VA_ARGS__); \
 } while(0)
 #define RARCH_ERR(...) do { \
