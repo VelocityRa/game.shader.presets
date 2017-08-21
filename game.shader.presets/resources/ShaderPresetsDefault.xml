@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <presets>
     <preset>
-        <path>cgp/gameboy-screen-grid.cgp</path>
+        <path>libretro/hlsl/cgp/gameboy-screen-grid.cgp</path>
         <!-- Game Boy Filter -->
         <name>30000</name>
         <!-- Game Boy -->
@@ -10,7 +10,7 @@
         <description>30002</description>
     </preset>
     <preset>
-        <path>crt/4xbr-hybrid-crt-b.cgp</path>
+        <path>libretro/hlsl/crt/4xbr-hybrid-crt-b.cgp</path>
         <!-- CRT Display -->
         <name>30003</name>
         <!-- CRT -->
@@ -19,7 +19,7 @@
         <description>30005</description>
     </preset>
     <preset>
-        <path>crt/crt-hyllian-multipass.cgp</path>
+        <path>libretro/hlsl/crt/crt-hyllian-multipass.cgp</path>
         <!-- CRT Display (Hylian) -->
         <name>30006</name>
         <!-- CRT -->
@@ -28,7 +28,7 @@
         <description>30007</description>
     </preset>
     <preset>
-        <path>cgp/crt-royale-kurozumi.cgp</path>
+        <path>libretro/hlsl/cgp/crt-royale-kurozumi.cgp</path>
         <!-- CRT Display (Royale) -->
         <name>30008</name>
         <!-- CRT -->
@@ -37,7 +37,7 @@
         <description>30009</description>
     </preset>
     <preset>
-        <path>ntsc/ntsc.cgp</path>
+        <path>libretro/hlsl/ntsc/ntsc.cgp</path>
         <!-- NTSC Filter -->
         <name>30010</name>
         <!-- NTSC -->
@@ -46,7 +46,7 @@
         <description>30012</description>
     </preset>
     <preset>
-        <path>cgp/tvout/tvout+ntsc-256px-svideo.cgp</path>
+        <path>libretro/hlsl/cgp/tvout/tvout+ntsc-256px-svideo.cgp</path>
         <!-- Analog Video -->
         <name>30013</name>
         <!-- NTSC/TV-out -->
@@ -55,7 +55,7 @@
         <description>30015</description>
     </preset>
     <preset>
-        <path>cgp/tvout/tvout+ntsc-256px-composite.cgp</path>
+        <path>libretro/hlsl/cgp/tvout/tvout+ntsc-256px-composite.cgp</path>
         <!-- Analog Video -->
         <name>30013</name>
         <!-- NTSC/TV-out -->
@@ -64,7 +64,7 @@
         <description>30016</description>
     </preset>
     <preset>
-        <path>cgp/tvout/tvout+ntsc-320px-svideo.cgp</path>
+        <path>libretro/hlsl/cgp/tvout/tvout+ntsc-320px-svideo.cgp</path>
         <!-- Analog Video -->
         <name>30013</name>
         <!-- NTSC/TV-out -->
@@ -73,7 +73,7 @@
         <description>30017</description>
     </preset>
     <preset>
-        <path>xbr/xbr-lv2-fast.cgp</path>
+        <path>libretro/hlsl/xbr/xbr-lv2-fast.cgp</path>
         <!-- Smoothing Shader -->
         <name>30018</name>
         <!-- Smoothing (xBR-lv2) -->
@@ -82,7 +82,7 @@
         <description>30020</description>
     </preset>
     <preset>
-        <path>xbr/xbr-mlv4-multipass.cgp</path>
+        <path>libretro/hlsl/xbr/xbr-mlv4-multipass.cgp</path>
         <!-- Smoothing Shader -->
         <name>30018</name>
         <!-- Smoothing (xBR-mlv4) -->
