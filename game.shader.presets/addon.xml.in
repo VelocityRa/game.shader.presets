@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="game.shader.presets"
-  version="0.0.3"
+  version="0.0.4"
   name="Shader Preset Support"
   provider-name="Team-Kodi">
   <requires>@ADDON_DEPENDS@</requires>

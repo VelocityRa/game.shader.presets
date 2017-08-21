@@ -22,8 +22,108 @@
 #include "StringUtils.h"
 
 #include <cassert>
+#include <ctype.h>
 
-std::string URIUtils::CanonicalizePath(const std::string& path, const char slashCharacter /*= '\\'*/)
+using namespace SHADER;
+
+bool URIUtils::IsDOSPath(const std::string &path)
+{
+  if (path.size() > 1 && path[1] == ':' && isalpha(path[0]))
+    return true;
+
+  // windows network drives
+  if (path.size() > 1 && path[0] == '\\' && path[1] == '\\')
+    return true;
+
+  return false;
+}
+
+bool URIUtils::IsAbsPath(const std::string &path)
+{
+  if (path.empty())
+    return false;
+
+  return IsDOSPath(path) || path[0] == '/';
+}
+
+std::string URIUtils::GetDirectory(const std::string &strFilePath)
+{
+  // Will from a full filename return the directory the file resides in.
+  // Keeps the final slash at end and possible |option=foo options.
+
+  size_t iPosSlash = strFilePath.find_last_of("/\\");
+  if (iPosSlash == std::string::npos)
+    return ""; // No slash, so no path (ignore any options)
+
+  size_t iPosBar = strFilePath.rfind('|');
+  if (iPosBar == std::string::npos)
+    return strFilePath.substr(0, iPosSlash + 1); // Only path
+
+  return strFilePath.substr(0, iPosSlash + 1) + strFilePath.substr(iPosBar); // Path + options
+}
+
+std::string URIUtils::AddFileToFolder(const std::string& strFolder, const std::string& strFile)
+{
+  std::string strResult = strFolder;
+  if (!strResult.empty())
+    AddSlashAtEnd(strResult);
+
+  // Remove any slash at the start of the file
+  if (strFile.size() && (strFile[0] == '/' || strFile[0] == '\\'))
+    strResult += strFile.substr(1);
+  else
+    strResult += strFile;
+
+  // correct any slash directions
+  if (!IsDOSPath(strFolder))
+    StringUtils::Replace(strResult, '\\', '/');
+  else
+    StringUtils::Replace(strResult, '/', '\\');
+
+  return strResult;
+}
+
+void URIUtils::AddSlashAtEnd(std::string& strFolder)
+{
+  if (!HasSlashAtEnd(strFolder))
+  {
+    if (IsDOSPath(strFolder))
+      strFolder += '\\';
+    else
+      strFolder += '/';
+  }
+}
+
+bool URIUtils::HasSlashAtEnd(const std::string& strFile)
+{
+  if (strFile.empty())
+    return false;
+
+  char kar = strFile.c_str()[strFile.size() - 1];
+
+  if (kar == '/' || kar == '\\')
+    return true;
+
+  return false;
+}
+
+std::string URIUtils::CanonicalizePath(const std::string& path)
+{
+  if (IsDOSPath(path))
+  {
+    std::string dosPath = path;
+    StringUtils::Replace(dosPath, '/', '\\');
+    return CanonicalizePath(dosPath, '\\');
+  }
+  else
+  {
+    std::string pathCopy = path;
+    StringUtils::Replace(pathCopy, '\\', '/');
+    return CanonicalizePath(pathCopy, '/');
+  }
+}
+
+std::string URIUtils::CanonicalizePath(const std::string& path, const char slashCharacter)
 {
   assert(slashCharacter == '\\' || slashCharacter == '/');
 
@@ -32,7 +132,7 @@ std::string URIUtils::CanonicalizePath(const std::string& path, const char slash
 
   const std::string slashStr(1, slashCharacter);
   std::vector<std::string> pathVec, resultVec;
-  SHADER::StringUtils::Tokenize(path, pathVec, slashStr);
+  StringUtils::Tokenize(path, pathVec, slashStr);
 
   for (std::vector<std::string>::const_iterator it = pathVec.begin(); it != pathVec.end(); ++it)
   {
@@ -48,7 +148,7 @@ std::string URIUtils::CanonicalizePath(const std::string& path, const char slash
   if (path[0] == slashCharacter)
     result.push_back(slashCharacter); // add slash at the begin
 
-  result += SHADER::StringUtils::Join(resultVec, slashStr);
+  result += StringUtils::Join(resultVec, slashStr);
 
   if (path[path.length() - 1] == slashCharacter  && !result.empty() && result[result.length() - 1] != slashCharacter)
     result.push_back(slashCharacter); // add slash at the end if result isn't empty and result isn't "/"

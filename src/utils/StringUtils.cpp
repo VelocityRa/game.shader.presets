@@ -193,3 +193,18 @@ void StringUtils::Tokenize(const std::string& input, std::vector<std::string>& t
       dataPos = input.find_first_not_of(delimiters, nextDelimPos);
    }
 }
+
+int StringUtils::Replace(std::string &str, char oldChar, char newChar)
+{
+  int replacedChars = 0;
+  for (std::string::iterator it = str.begin(); it != str.end(); ++it)
+  {
+    if (*it == oldChar)
+    {
+      *it = newChar;
+      replacedChars++;
+    }
+  }
+
+  return replacedChars;
+}

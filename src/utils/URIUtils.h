@@ -27,9 +27,21 @@ class CURL;
 class URIUtils
 {
 public:
-  URIUtils(void);
-  virtual ~URIUtils(void);
-/**
+  static bool IsDOSPath(const std::string &path);
+
+  static bool IsAbsPath(const std::string &path);
+
+  static std::string GetDirectory(const std::string &strFilePath);
+
+  static std::string AddFileToFolder(const std::string& strFolder, const std::string& strFile);
+
+  static void AddSlashAtEnd(std::string& strFolder);
+
+  static bool HasSlashAtEnd(const std::string& strFile);
+
+  static std::string CanonicalizePath(const std::string& path);
+
+  /**
    * Convert path to form without duplicated slashes and without relative directories
    * Strip duplicated slashes
    * Resolve and remove relative directories ("/../" and "/./")
@@ -40,6 +52,6 @@ public:
    * @param slashCharacter character to use as directory delimiter
    * @return transformed path
    */
-  static std::string CanonicalizePath(const std::string& path, const char slashCharacter = '\\');
+  static std::string CanonicalizePath(const std::string& path, const char slashCharacter);
 };
 

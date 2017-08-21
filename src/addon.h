@@ -38,12 +38,12 @@ public:
   virtual ADDON_STATUS SetSetting(const std::string& settingName, const kodi::CSettingValue& settingValue) override;
 
   // CInstanceShaderPreset overrides
-  config_file* ConfigFileNew(const char *path) override;
-  void ConfigFileFree(config_file *conf) override;
-  bool ShaderPresetRead(config_file *conf, video_shader &shader) override;
-  void ShaderPresetWrite(config_file *conf, const video_shader &shader) override;
+  preset_file PresetFileNew(const char *path) override;
+  void PresetFileFree(preset_file file) override;
+  bool ShaderPresetRead(preset_file file, video_shader &shader) override;
+  void ShaderPresetWrite(preset_file file, const video_shader &shader) override;
   //void ShaderPresetResolveRelative(video_shader &shader, const char *ref_path) override;
-  //bool ShaderPresetResolveCurrentParameters(config_file *conf, video_shader &shader) override;
-  bool ShaderPresetResolveParameters(config_file *conf, video_shader &shader) override;
+  //bool ShaderPresetResolveCurrentParameters(preset_file file, video_shader &shader) override;
+  bool ShaderPresetResolveParameters(preset_file file, video_shader &shader) override;
   void ShaderPresetFree(video_shader &shader) override;
 };

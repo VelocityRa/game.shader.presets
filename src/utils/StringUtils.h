@@ -97,5 +97,7 @@ namespace SHADER
           result.erase(result.size() - delimiter.size());
        return result;
     }
+
+    static int Replace(std::string &str, char oldChar, char newChar);
   };
 }

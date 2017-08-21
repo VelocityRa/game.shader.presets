@@ -23,6 +23,8 @@
 
 #include <kodi/addon-instance/ShaderPreset.h>
 
+#include <string>
+
 class CRarchTranslator
 {
 public:
@@ -35,17 +37,20 @@ public:
   static SHADER_WRAP_TYPE TranslateWrapType(enum gfx_wrap_type type);
   static enum gfx_wrap_type TranslateWrapType(SHADER_WRAP_TYPE type);
 
-  static void TranslateShaderPass(const rarch_video_shader_pass &rarch_pass, video_shader_pass &pass);
-  static void TranslateShaderPass(const video_shader_pass &pass, rarch_video_shader_pass &rarch_pass);
+  static void TranslateShaderPass(const rarch_video_shader_pass &rarch_pass, video_shader_pass &pass, const std::string &configPath);
+  static void TranslateShaderPass(const video_shader_pass &pass, rarch_video_shader_pass &rarch_pass, const std::string &configPath);
 
-  static void TranslateShaderLut(const rarch_video_shader_lut &rarch_lut, video_shader_lut &lut);
-  static void TranslateShaderLut(const video_shader_lut &lut, rarch_video_shader_lut &rarch_lut);
+  static void TranslateShaderLut(const rarch_video_shader_lut &rarch_lut, video_shader_lut &lut, const std::string &configPath);
+  static void TranslateShaderLut(const video_shader_lut &lut, rarch_video_shader_lut &rarch_lut, const std::string &configPath);
 
   static void TranslateShaderParameter(const rarch_video_shader_parameter &rarch_param, video_shader_parameter &param);
   static void TranslateShaderParameter(const video_shader_parameter &param, rarch_video_shader_parameter &rarch_param);
 
-  static void TranslateShader(const rarch_video_shader &rarch_shader, video_shader &shader);
-  static void TranslateShader(const video_shader &shader, rarch_video_shader &rarch_shader);
+  static void TranslateShader(const rarch_video_shader &rarch_shader, video_shader &shader, const std::string &configPath);
+  static void TranslateShader(const video_shader &shader, rarch_video_shader &rarch_shader, const std::string &configPath);
+
+  static void TranslateRelativePath(char *absPath, const char *relPath, const std::string &configPath);
+  static void TranslateAbsPath(char *relPath, const char *absPath, const std::string &configPath);
 
   //! @todo
   static void FreeShader(rarch_video_shader &rarch_shader);

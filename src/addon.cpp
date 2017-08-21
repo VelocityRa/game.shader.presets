@@ -32,6 +32,18 @@
 
 using namespace SHADER;
 
+struct shader_preset_file
+{
+  shader_preset_file(config_file_t *rarch_conf, const std::string &path) :
+    rarch_conf(rarch_conf),
+    path(path)
+  {
+  }
+
+  config_file_t *rarch_conf = nullptr;
+  std::string path;
+};
+
 CShaderPreset::~CShaderPreset()
 {
   CFilesystem::Deinitialize();
@@ -61,25 +73,36 @@ ADDON_STATUS CShaderPreset::GetStatus()
   return ADDON_STATUS_OK;
 }
 
-config_file* CShaderPreset::ConfigFileNew(const char *path)
+preset_file CShaderPreset::PresetFileNew(const char *path)
 {
-  return static_cast<config_file*>(config_file_new(path));
+  config_file_t *rarch_conf = config_file_new(path);
+
+  if (rarch_conf != nullptr)
+    return static_cast<preset_file>(new shader_preset_file(rarch_conf, path));
+
+  return nullptr;
 }
 
-void CShaderPreset::ConfigFileFree(config_file *conf)
+void CShaderPreset::PresetFileFree(preset_file file)
 {
-  config_file_free(static_cast<config_file_t*>(conf));
+  shader_preset_file *preset_file = static_cast<shader_preset_file*>(file);
+
+  config_file_free(preset_file->rarch_conf);
+
+  delete preset_file;
 }
 
-bool CShaderPreset::ShaderPresetRead(config_file *conf, video_shader &shader)
+bool CShaderPreset::ShaderPresetRead(preset_file file, video_shader &shader)
 {
+  shader_preset_file *preset_file = static_cast<shader_preset_file*>(file);
+
   rarch_video_shader rarch_shader;
 
-  bool readResult = video_shader_read_conf_cgp(static_cast<config_file_t*>(conf), &rarch_shader);
+  bool readResult = video_shader_read_conf_cgp(preset_file->rarch_conf, &rarch_shader);
   if (!readResult)
     return false;
 
-  CRarchTranslator::TranslateShader(rarch_shader, shader);
+  CRarchTranslator::TranslateShader(rarch_shader, shader, preset_file->path);
 
   for (unsigned passIdx = 0; passIdx < shader.pass_count; ++passIdx)
   {
@@ -99,29 +122,33 @@ bool CShaderPreset::ShaderPresetRead(config_file *conf, video_shader &shader)
   return true;
 }
 
-void CShaderPreset::ShaderPresetWrite(config_file *conf, const video_shader &shader)
+void CShaderPreset::ShaderPresetWrite(preset_file file, const video_shader &shader)
 {
+  shader_preset_file *preset_file = static_cast<shader_preset_file*>(file);
+
   rarch_video_shader rarch_shader;
 
-  CRarchTranslator::TranslateShader(shader, rarch_shader);
+  CRarchTranslator::TranslateShader(shader, rarch_shader, preset_file->path);
 
-  video_shader_write_conf_cgp(static_cast<config_file_t*>(conf), &rarch_shader);
+  video_shader_write_conf_cgp(preset_file->rarch_conf, &rarch_shader);
 
   CRarchTranslator::FreeShader(rarch_shader);
 }
 
-bool CShaderPreset::ShaderPresetResolveParameters(config_file *conf, video_shader &shader)
+bool CShaderPreset::ShaderPresetResolveParameters(preset_file file, video_shader &shader)
 {
+  shader_preset_file *preset_file = static_cast<shader_preset_file*>(file);
+
   rarch_video_shader rarch_shader;
 
-  CRarchTranslator::TranslateShader(shader, rarch_shader);
+  CRarchTranslator::TranslateShader(shader, rarch_shader, preset_file->path);
 
-  bool bSuccess = video_shader_resolve_parameters(static_cast<config_file_t*>(conf), &rarch_shader);
+  bool bSuccess = video_shader_resolve_parameters(preset_file->rarch_conf, &rarch_shader);
 
   if (bSuccess)
   {
     ShaderPresetFree(shader);
-    CRarchTranslator::TranslateShader(rarch_shader, shader);
+    CRarchTranslator::TranslateShader(rarch_shader, shader, preset_file->path);
   }
 
   CRarchTranslator::FreeShader(rarch_shader);
