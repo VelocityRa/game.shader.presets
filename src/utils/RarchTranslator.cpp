@@ -137,10 +137,7 @@ void CRarchTranslator::TranslateShaderPass(const rarch_video_shader_pass &rarch_
   {
     const unsigned int source_path_len = std::strlen(rarch_pass.source.path);
     if (source_path_len > 0)
-    {
-      pass.source_path = new char[source_path_len];
       TranslateRelativePath(pass.source_path, rarch_pass.source.path, configPath);
-    }
   }
 
   pass.vertex_source = nullptr;
@@ -149,7 +146,7 @@ void CRarchTranslator::TranslateShaderPass(const rarch_video_shader_pass &rarch_
     const unsigned int vertex_source_len = std::strlen(rarch_pass.source.string.vertex);
     if (vertex_source_len > 0)
     {
-      pass.vertex_source = new char[vertex_source_len];
+      pass.vertex_source = new char[vertex_source_len + 1];
       std::strcpy(pass.vertex_source, rarch_pass.source.string.vertex);
     }
   }
@@ -160,7 +157,7 @@ void CRarchTranslator::TranslateShaderPass(const rarch_video_shader_pass &rarch_
     const unsigned int fragment_source_len = std::strlen(rarch_pass.source.string.fragment);
     if (fragment_source_len > 0)
     {
-      pass.fragment_source = new char[fragment_source_len];
+      pass.fragment_source = new char[fragment_source_len + 1];
       std::strcpy(pass.fragment_source, rarch_pass.source.string.fragment);
     }
   }
@@ -201,13 +198,13 @@ void CRarchTranslator::TranslateShaderPass(const video_shader_pass &pass, rarch_
 {
   rarch_pass.source.path[0] = '\0';
   if (pass.source_path != nullptr)
-    TranslateAbsPath(rarch_pass.source.path, pass.source_path, configPath);
+    TranslateAbsPath(rarch_pass.source.path, PATH_MAX_LENGTH, pass.source_path, configPath);
 
   rarch_pass.source.string.vertex = nullptr;
   if (pass.vertex_source != nullptr)
   {
     unsigned int vertex_len = std::strlen(pass.vertex_source);
-    rarch_pass.source.string.vertex = static_cast<char*>(malloc(vertex_len));
+    rarch_pass.source.string.vertex = static_cast<char*>(malloc(vertex_len + 1));
     std::strcpy(rarch_pass.source.string.vertex, pass.vertex_source);
   }
 
@@ -215,7 +212,7 @@ void CRarchTranslator::TranslateShaderPass(const video_shader_pass &pass, rarch_
   if (pass.fragment_source != nullptr)
   {
     unsigned int fragment_len = std::strlen(pass.fragment_source);
-    rarch_pass.source.string.fragment = static_cast<char*>(malloc(fragment_len));
+    rarch_pass.source.string.fragment = static_cast<char*>(malloc(fragment_len + 1));
     std::strcpy(rarch_pass.source.string.fragment, pass.fragment_source);
   }
 
@@ -259,17 +256,14 @@ void CRarchTranslator::TranslateShaderLut(const rarch_video_shader_lut &rarch_lu
   unsigned int id_len = std::strlen(rarch_lut.id);
   if (id_len > 0)
   {
-    lut.id = new char[id_len];
+    lut.id = new char[id_len + 1];
     std::strcpy(lut.id, rarch_lut.id);
   }
 
   lut.path = nullptr;
   unsigned int path_len = std::strlen(rarch_lut.path);
   if (path_len > 0)
-  {
-    lut.path = new char[path_len];
     TranslateRelativePath(lut.path, rarch_lut.path, configPath);
-  }
 
   lut.filter = TranslateFilterType(rarch_lut.filter);
   lut.wrap = TranslateWrapType(rarch_lut.wrap);
@@ -284,7 +278,7 @@ void CRarchTranslator::TranslateShaderLut(const video_shader_lut &lut, rarch_vid
 
   rarch_lut.path[0] = '\0';
   if (lut.path != nullptr)
-    TranslateAbsPath(rarch_lut.path, lut.path, configPath);
+    TranslateAbsPath(rarch_lut.path, PATH_MAX_LENGTH, lut.path, configPath);
 
   rarch_lut.filter = TranslateFilterType(lut.filter);
   rarch_lut.wrap = TranslateWrapType(lut.wrap);
@@ -297,7 +291,7 @@ void CRarchTranslator::TranslateShaderParameter(const rarch_video_shader_paramet
   unsigned int id_len = std::strlen(rarch_param.id);
   if (id_len > 0)
   {
-    param.id = new char[id_len];
+    param.id = new char[id_len + 1];
     std::strcpy(param.id, rarch_param.id);
   }
 
@@ -305,7 +299,7 @@ void CRarchTranslator::TranslateShaderParameter(const rarch_video_shader_paramet
   unsigned int desc_len = std::strlen(rarch_param.desc);
   if (desc_len > 0)
   {
-    param.desc = new char[desc_len];
+    param.desc = new char[desc_len + 1];
     std::strcpy(param.desc, rarch_param.desc);
   }
 
@@ -389,33 +383,40 @@ void CRarchTranslator::TranslateShader(const video_shader &shader, rarch_video_s
   rarch_shader.feedback_pass = -1;
 }
 
-void CRarchTranslator::TranslateRelativePath(char *absPath, const char *relPath, const std::string &configPath)
+void CRarchTranslator::TranslateRelativePath(char *&absPath, const char *relPath, const std::string &configPath)
 {
+  std::string strAbsPath;
+
   if (URIUtils::IsAbsPath(relPath))
   {
-    std::strcpy(absPath, relPath);
+    strAbsPath = relPath;
   }
   else
   {
     std::string basePath = URIUtils::GetDirectory(configPath);
-    std::string strAbsPath = URIUtils::AddFileToFolder(basePath, relPath);
-    std::string canonicalizedPath = URIUtils::CanonicalizePath(strAbsPath);
-
-    std::strcpy(absPath, canonicalizedPath.c_str());
+    std::string combinedPath = URIUtils::AddFileToFolder(basePath, relPath);
+    strAbsPath = URIUtils::CanonicalizePath(combinedPath);
   }
+
+  absPath = new char[strAbsPath.length() + 1];
+  std::strcpy(absPath, strAbsPath.c_str());
 }
 
-void CRarchTranslator::TranslateAbsPath(char *relPath, const char *absPath, const std::string &configPath)
+void CRarchTranslator::TranslateAbsPath(char *relPath, size_t maxPathLen, const char *absPath, const std::string &configPath)
 {
+  std::string strRelPath;
+
   if (!URIUtils::IsAbsPath(absPath))
   {
-    std::strcpy(relPath, absPath);
+    strRelPath = absPath;
   }
   else
   {
     //! @todo
-    std::strcpy(relPath, absPath);
+    strRelPath = absPath;
   }
+
+  std::strncpy(relPath, strRelPath.c_str(), maxPathLen - 1);
 }
 
 void CRarchTranslator::FreeShader(rarch_video_shader &rarch_shader)

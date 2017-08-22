@@ -49,8 +49,8 @@ public:
   static void TranslateShader(const rarch_video_shader &rarch_shader, video_shader &shader, const std::string &configPath);
   static void TranslateShader(const video_shader &shader, rarch_video_shader &rarch_shader, const std::string &configPath);
 
-  static void TranslateRelativePath(char *absPath, const char *relPath, const std::string &configPath);
-  static void TranslateAbsPath(char *relPath, const char *absPath, const std::string &configPath);
+  static void TranslateRelativePath(char *&absPath, const char *relPath, const std::string &configPath);
+  static void TranslateAbsPath(char *relPath, size_t maxPathLen, const char *absPath, const std::string &configPath);
 
   //! @todo
   static void FreeShader(rarch_video_shader &rarch_shader);
