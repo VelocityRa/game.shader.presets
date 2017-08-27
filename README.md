@@ -18,6 +18,15 @@ make
 make install
 ```
 
+Clone the repo and make sure to download the submodules too with:
+```shell
+git clone https://github.com/VelocityRa/game.shader.presets.git --recursive
+```
+If you just want the submodules do:
+```shell
+git submodule update --init --recursive
+```
+
 Now, run the Makefile with the path to the build system:
 
 ```shell
