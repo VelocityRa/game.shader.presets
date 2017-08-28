@@ -1,8 +1,53 @@
 <?xml version="1.0" ?>
 <presets>
     <preset>
+        <path>libretro/hlsl/handheld/lcd3x.cgp</path>
+        <!-- LCD3x -->
+        <name>30033</name>
+        <!-- LCD -->
+        <category>30032</category>
+        <!-- LCD3x is an image filter by gigaherz that simulates the aspect of an LCD screen while at the same time increasing the size of the source image. -->
+        <description>30034</description>
+    </preset>
+    <preset>
+        <path>libretro/hlsl/handheld/lcd-grid-v2-gba-color.cgp</path>
+        <!-- GBA Colors -->
+        <name>30026</name>
+        <!-- Handheld -->
+        <category>30030</category>
+        <!-- No description. -->
+        <description>30031</description>
+    </preset>
+    <preset>
+        <path>libretro/hlsl/handheld/lcd-grid-v2-nds-color.cgp</path>
+        <!-- NDS Colors -->
+        <name>30027</name>
+        <!-- Handheld -->
+        <category>30030</category>
+        <!-- No description. -->
+        <description>30031</description>
+    </preset>
+    <preset>
+        <path>libretro/hlsl/handheld/lcd-grid-v2-psp-color.cgp</path>
+        <!-- PSP Colors -->
+        <name>30028</name>
+        <!-- Handheld -->
+        <category>30030</category>
+        <!-- No description. -->
+        <description>30031</description>
+    </preset>
+    <preset>
+        <path>libretro/hlsl/handheld/lcd-grid-v2-vba-color.cgp</path>
+        <!-- VBA Colors -->
+        <name>30029</name>
+        <!-- Handheld -->
+        <category>30030</category>
+        <!-- No description. -->
+        <description>30031</description>
+    </preset>
+    <preset>
         <path>libretro/hlsl/cgp/gameboy-screen-grid.cgp</path>
-        <!-- Game Boy Filter -->
+        <!-- Game Boy Screen -->
         <name>30000</name>
         <!-- Game Boy -->
         <category>30001</category>
@@ -11,31 +56,31 @@
     </preset>
     <preset>
         <path>libretro/hlsl/crt/4xbr-hybrid-crt-b.cgp</path>
-        <!-- CRT Display -->
+        <!-- 4xbr Hybrid -->
         <name>30003</name>
-        <!-- CRT -->
+        <!-- CRT Display -->
         <category>30004</category>
         <!-- Emulates a CRT display. Basic. Features scan-lines, color correction, gamma correction and sharpening. -->
         <description>30005</description>
     </preset>
-    <preset>
-        <path>libretro/hlsl/crt/crt-hyllian-multipass.cgp</path>
-        <!-- CRT Display (Hylian) -->
-        <name>30006</name>
-        <!-- CRT -->
-        <category>30004</category>
+<!--    <preset> -->
+<!--        <path>libretro/hlsl/crt/crt-hyllian-multipass.cgp</path> -->
+        <!-- Hylian Multipass -->
+<!--        <name>30006</name> -->
+        <!-- CRT Display -->
+<!--        <category>30004</category> -->
         <!-- Emulates a CRT display. Advanced and fast. Aims only for picture quality, so it avoids effects that degrade the image. Features scan-lines, color correction, gamma correction, sharpening, CRT phosphor and CRT beam effects. -->
-        <description>30007</description>
-    </preset>
-    <preset>
-        <path>libretro/hlsl/cgp/crt-royale-kurozumi.cgp</path>
+<!--        <description>30007</description> -->
+<!--    </preset> -->
+<!--    <preset> -->
+<!--        <path>libretro/hlsl/cgp/crt-royale-kurozumi.cgp</path> -->
         <!-- CRT Display (Royale) -->
-        <name>30008</name>
-        <!-- CRT -->
-        <category>30004</category>
+<!--        <name>30008</name> -->
+        <!-- CRT Display -->
+<!--        <category>30004</category> -->
         <!-- Emulates a CRT display. Highly advanced multi-pass shader. Resource intensive. Features scan-lines, color correction, gamma correction, sharpening, CRT phosphor emulation, halation, refractive diffusion, curvature and anti-aliasing. -->
-        <description>30009</description>
-    </preset>
+<!--        <description>30009</description> -->
+<!--    </preset> -->
     <preset>
         <path>libretro/hlsl/ntsc/ntsc.cgp</path>
         <!-- NTSC Filter -->
@@ -46,17 +91,8 @@
         <description>30012</description>
     </preset>
     <preset>
-        <path>libretro/hlsl/cgp/tvout/tvout+ntsc-256px-svideo.cgp</path>
-        <!-- Analog Video -->
-        <name>30013</name>
-        <!-- NTSC/TV-out -->
-        <category>30014</category>
-        <!-- Replicates the analog signals that the consoles output to the TV. 256px downscale resolution. Emulates S-Video connector. Features color distortion, blurring, NTSC color artifacts. -->
-        <description>30015</description>
-    </preset>
-    <preset>
         <path>libretro/hlsl/cgp/tvout/tvout+ntsc-256px-composite.cgp</path>
-        <!-- Analog Video -->
+        <!-- NTSC 256px Composite -->
         <name>30013</name>
         <!-- NTSC/TV-out -->
         <category>30014</category>
@@ -64,9 +100,18 @@
         <description>30016</description>
     </preset>
     <preset>
+        <path>libretro/hlsl/cgp/tvout/tvout+ntsc-256px-svideo.cgp</path>
+        <!-- NTSC 256px S-video -->
+        <name>30035</name>
+        <!-- NTSC/TV-out -->
+        <category>30014</category>
+        <!-- Replicates the analog signals that the consoles output to the TV. 256px downscale resolution. Emulates S-Video connector. Features color distortion, blurring, NTSC color artifacts. -->
+        <description>30015</description>
+    </preset>
+    <preset>
         <path>libretro/hlsl/cgp/tvout/tvout+ntsc-320px-svideo.cgp</path>
-        <!-- Analog Video -->
-        <name>30013</name>
+        <!-- NTSC 320px S-video -->
+        <name>30036</name>
         <!-- NTSC/TV-out -->
         <category>30014</category>
         <!-- Replicates the analog signals that the consoles output to the TV. 320px downscale resolution. Emulates S-Video connector. Features color distortion, blurring, NTSC color artifacts. -->
@@ -74,20 +119,29 @@
     </preset>
     <preset>
         <path>libretro/hlsl/xbr/xbr-lv2-fast.cgp</path>
-        <!-- Smoothing Shader -->
-        <name>30018</name>
-        <!-- Smoothing (xBR-lv2) -->
-        <category>30019</category>
+        <!-- xBR-lv2 -->
+        <name>30019</name>
+        <!-- Scaling Shader -->
+        <category>30018</category>
         <!-- Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale, by detecting edges and interpolating pixels along them. -->
         <description>30020</description>
     </preset>
     <preset>
-        <path>libretro/hlsl/xbr/xbr-mlv4-multipass.cgp</path>
-        <!-- Smoothing Shader -->
-        <name>30018</name>
-        <!-- Smoothing (xBR-mlv4) -->
-        <category>30021</category>
-        <!-- Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale, by detecting edges and interpolating pixels along them. Latest evolution of the standard xBR algorithm. The interpolation blends pixel colors, so that the final image is smoother than the other versions. -->
-        <description>30022</description>
+        <path>libretro/hlsl/eagle/super-eagle.cgp</path>
+        <!-- Super Eagle -->
+        <name>30024</name>
+        <!-- Scaling Shader -->
+        <category>30018</category>
+        <!-- Attempts to reduce pixelation by smoothing and rounding edges. Uses the Super Eagle algorithm (by Kreed) to scale, by detecting edges and interpolating pixels along them. Does more blending than other scaling algorithms. -->
+        <description>30025</description>
     </preset>
+<!--    <preset> -->
+<!--        <path>libretro/hlsl/xbr/xbr-mlv4-multipass.cgp</path> -->
+        <!-- xBR-mlv4 -->
+<!--        <name>30021</name> -->
+        <!-- Scaling Shader -->
+<!--        <category>30018</category> -->
+        <!-- Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale, by detecting edges and interpolating pixels along them. Latest evolution of the standard xBR algorithm. The interpolation blends pixel colors, so that the final image is smoother than the other versions. -->
+<!--        <description>30022</description> -->
+<!--    </preset> -->
 </presets>

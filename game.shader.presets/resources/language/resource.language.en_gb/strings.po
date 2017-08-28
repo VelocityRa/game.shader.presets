@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgctxt "#30000"
-msgid "Game Boy Filter"
+msgid "Game Boy Screen"
 msgstr ""
 
 msgctxt "#30001"
@@ -29,11 +29,11 @@ msgid "Replicates the dot matrix screen of a Game Boy, complete with the ghostin
 msgstr ""
 
 msgctxt "#30003"
-msgid "CRT Display"
+msgid "4xbr Hybrid"
 msgstr ""
 
 msgctxt "#30004"
-msgid "CRT"
+msgid "CRT Display"
 msgstr ""
 
 msgctxt "#30005"
@@ -41,7 +41,7 @@ msgid "Emulates a CRT display. Basic. Features scan-lines, color correction, gam
 msgstr ""
 
 msgctxt "#30006"
-msgid "CRT Display (Hylian)"
+msgid "Hylian Multipass"
 msgstr ""
 
 msgctxt "#30007"
@@ -69,7 +69,7 @@ msgid "Replicates the analog signals that the consoles output to the TV. Feature
 msgstr ""
 
 msgctxt "#30013"
-msgid "Analog Video"
+msgid "NTSC 256px Composite"
 msgstr ""
 
 msgctxt "#30014"
@@ -89,11 +89,11 @@ msgid "Replicates the analog signals that the consoles output to the TV. 320px d
 msgstr ""
 
 msgctxt "#30018"
-msgid "Smoothing Shader"
+msgid "Scaling Shader"
 msgstr ""
 
 msgctxt "#30019"
-msgid "Smoothing (xBR-lv2)"
+msgid "xBR-lv2"
 msgstr ""
 
 msgctxt "#30020"
@@ -101,9 +101,62 @@ msgid "Attempts to reduce pixelation by smoothing and rounding edges. Uses the x
 msgstr ""
 
 msgctxt "#30021"
-msgid "Smoothing (xBR-mlv4)"
+msgid "xBR-mlv4"
 msgstr ""
 
 msgctxt "#30022"
 msgid "Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale, by detecting edges and interpolating pixels along them. Latest evolution of the standard xBR algorithm. The interpolation blends pixel colors, so that the final image is smoother than the other versions."
+msgstr ""
+
+msgctxt "#30024"
+msgid "Super Eagle"
+msgstr ""
+
+msgctxt "#30025"
+msgid "Attempts to reduce pixelation by smoothing and rounding edges. Uses the Super Eagle algorithm (by Kreed) to scale, by detecting edges and interpolating pixels along them. Does more blending than other scaling algorithms."
+msgstr ""
+
+msgctxt "#30026"
+msgid "GBA Colors"
+msgstr ""
+
+msgctxt "#30027"
+msgid "NDS Colors"
+msgstr ""
+
+msgctxt "#30028"
+msgid "PSP Colors"
+msgstr ""
+
+msgctxt "#30029"
+msgid "VBA Colors"
+msgstr ""
+
+msgctxt "#30030"
+msgid "Handheld"
+msgstr ""
+
+msgctxt "#30031"
+msgid "No description."
+msgstr ""
+
+msgctxt "#30032"
+msgid "LCD"
+msgstr ""
+
+msgctxt "#30033"
+msgid "LCD3x"
+msgstr ""
+
+msgctxt "#30034"
+msgid "LCD3x is an image filter that simulates the aspect of an LCD screen while at the same time increasing the size of the source image."
+msgstr ""
+
+msgctxt "#30035"
+msgid "NTSC 256px S-video"
+msgstr ""
+
+
+msgctxt "#30036"
+msgid "NTSC 320px S-video"
 msgstr ""
