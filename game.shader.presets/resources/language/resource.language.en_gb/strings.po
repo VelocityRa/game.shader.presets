@@ -16,9 +16,7 @@ msgstr ""
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgctxt "#30000"
-msgid "Game Boy Screen"
-msgstr ""
+#empty string with id 30000
 
 msgctxt "#30001"
 msgid "Game Boy"
@@ -49,7 +47,7 @@ msgid "Emulates a CRT display. Advanced and fast. Aims only for picture quality,
 msgstr ""
 
 msgctxt "#30008"
-msgid "CRT Display (Royale)"
+msgid "Royale"
 msgstr ""
 
 msgctxt "#30009"
@@ -57,7 +55,7 @@ msgid "Emulates a CRT display. Highly advanced multi-pass shader. Resource inten
 msgstr ""
 
 msgctxt "#30010"
-msgid "NTSC Filter"
+msgid "Television"
 msgstr ""
 
 msgctxt "#30011"
@@ -69,11 +67,11 @@ msgid "Replicates the analog signals that the consoles output to the TV. Feature
 msgstr ""
 
 msgctxt "#30013"
-msgid "NTSC 256px Composite"
+msgid "TV-out"
 msgstr ""
 
 msgctxt "#30014"
-msgid "NTSC/TV-out"
+msgid "NTSC 256px Composite"
 msgstr ""
 
 msgctxt "#30015"
@@ -97,7 +95,7 @@ msgid "xBR-lv2 (fast)"
 msgstr ""
 
 msgctxt "#30020"
-msgid "Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale. Simplified lvl2 implementation. Detects 4 edges. Much faster than the standard version, though it sacrifices some quality."
++msgid "Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale. Simplified lvl2 implementation. Detects 4 edges. Much faster than the standard version, though it sacrifices some quality."
 msgstr ""
 
 msgctxt "#30021"
@@ -105,7 +103,7 @@ msgid "xBR-mlv4"
 msgstr ""
 
 msgctxt "#30022"
-msgid "Reduces pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale. Latest evolution of the standard xBR algorithm. The interpolation blends pixel colors, so that the final image is smoother than the other versions."
++msgid "Reduces pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale. Latest evolution of the standard xBR algorithm. The interpolation blends pixel colors, so that the final image is smoother than the other versions."
 msgstr ""
 
 msgctxt "#30024"
@@ -113,7 +111,7 @@ msgid "Super Eagle"
 msgstr ""
 
 msgctxt "#30025"
-msgid "Reduces pixelation by smoothing and rounding edges. Uses the Super Eagle algorithm (by Kreed) to scale. Does more blending than other scaling algorithms."
++msgid "Reduces pixelation by smoothing and rounding edges. Uses the Super Eagle algorithm (by Kreed) to scale. Does more blending than other scaling algorithms."
 msgstr ""
 
 msgctxt "#30026"
@@ -141,7 +139,7 @@ msgid "No description."
 msgstr ""
 
 msgctxt "#30032"
-msgid "LCD"
+msgid "LCD Screen"
 msgstr ""
 
 msgctxt "#30033"
@@ -175,4 +173,3 @@ msgstr ""
 msgctxt "#30040"
 msgid "Reduces pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm. Detects 6 edges, which shows as better rounded objects on screen. The interpolation doesn't blend pixel colors."
 msgstr ""
-
