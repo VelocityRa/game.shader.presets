@@ -1,11 +1,47 @@
 <?xml version="1.0" ?>
 <presets>
     <preset>
+        <path>libretro/hlsl/eagle/super-eagle.cgp</path>
+        <!-- Super Eagle -->
+        <name>30024</name>
+        <!-- Scaling Shader -->
+        <category>30018</category>
+        <!-- Reduces pixelation by smoothing and rounding edges. Uses the Super Eagle algorithm (by Kreed) to scale, by detecting edges and interpolating pixels along them. Does more blending than other scaling algorithms. -->
+        <description>30025</description>
+    </preset>
+    <preset>
+        <path>libretro/hlsl/xbr/xbr-lv2-fast.cgp</path>
+        <!-- xBR-lv2 (fast) -->
+        <name>30019</name>
+        <!-- Scaling Shader -->
+        <category>30018</category>
+        <!-- Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale. Simplified lvl2 implementation. Detects 4 edges. Much faster than the standard version, though it sacrifices some quality. -->
+        <description>30020</description>
+    </preset>
+    <preset>
+        <path>libretro/hlsl/xbr/xbr-lv3.cgp</path>
+        <!-- xBR-lv3 -->
+        <name>30037</name>
+        <!-- Scaling Shader -->
+        <category>30018</category>
+        <!-- Reduces pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm. Detects 6 edges, which shows as better rounded objects on screen. The interpolation blends pixel colors, so the final image is smoother than noblend versions. -->
+        <description>30039</description>
+    </preset>
+    <preset>
+        <path>libretro/hlsl/xbr/xbr-lv3-noblend.cgp</path>
+        <!-- xBR-lv3 No Blend -->
+        <name>30038</name>
+        <!-- Scaling Shader -->
+        <category>30018</category>
+        <!-- Reduces pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm. Detects 6 edges, which shows as better rounded objects on screen. The interpolation doesn't blend pixel colors. -->
+        <description>30040</description>
+    </preset>
+    <preset>
         <path>libretro/hlsl/handheld/lcd3x.cgp</path>
         <!-- LCD3x -->
         <name>30033</name>
-        <!-- LCD -->
-        <category>30032</category>
+        <!-- Scaling Shader -->
+        <category>30018</category>
         <!-- LCD3x is an image filter by gigaherz that simulates the aspect of an LCD screen while at the same time increasing the size of the source image. -->
         <description>30034</description>
     </preset>
@@ -116,24 +152,6 @@
         <category>30014</category>
         <!-- Replicates the analog signals that the consoles output to the TV. 320px downscale resolution. Emulates S-Video connector. Features color distortion, blurring, NTSC color artifacts. -->
         <description>30017</description>
-    </preset>
-    <preset>
-        <path>libretro/hlsl/xbr/xbr-lv2-fast.cgp</path>
-        <!-- xBR-lv2 -->
-        <name>30019</name>
-        <!-- Scaling Shader -->
-        <category>30018</category>
-        <!-- Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale, by detecting edges and interpolating pixels along them. -->
-        <description>30020</description>
-    </preset>
-    <preset>
-        <path>libretro/hlsl/eagle/super-eagle.cgp</path>
-        <!-- Super Eagle -->
-        <name>30024</name>
-        <!-- Scaling Shader -->
-        <category>30018</category>
-        <!-- Attempts to reduce pixelation by smoothing and rounding edges. Uses the Super Eagle algorithm (by Kreed) to scale, by detecting edges and interpolating pixels along them. Does more blending than other scaling algorithms. -->
-        <description>30025</description>
     </preset>
 <!--    <preset> -->
 <!--        <path>libretro/hlsl/xbr/xbr-mlv4-multipass.cgp</path> -->

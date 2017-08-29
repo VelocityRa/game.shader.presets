@@ -93,11 +93,11 @@ msgid "Scaling Shader"
 msgstr ""
 
 msgctxt "#30019"
-msgid "xBR-lv2"
+msgid "xBR-lv2 (fast)"
 msgstr ""
 
 msgctxt "#30020"
-msgid "Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale, by detecting edges and interpolating pixels along them."
+msgid "Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale. Simplified lvl2 implementation. Detects 4 edges. Much faster than the standard version, though it sacrifices some quality."
 msgstr ""
 
 msgctxt "#30021"
@@ -105,7 +105,7 @@ msgid "xBR-mlv4"
 msgstr ""
 
 msgctxt "#30022"
-msgid "Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale, by detecting edges and interpolating pixels along them. Latest evolution of the standard xBR algorithm. The interpolation blends pixel colors, so that the final image is smoother than the other versions."
+msgid "Reduces pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale. Latest evolution of the standard xBR algorithm. The interpolation blends pixel colors, so that the final image is smoother than the other versions."
 msgstr ""
 
 msgctxt "#30024"
@@ -113,7 +113,7 @@ msgid "Super Eagle"
 msgstr ""
 
 msgctxt "#30025"
-msgid "Attempts to reduce pixelation by smoothing and rounding edges. Uses the Super Eagle algorithm (by Kreed) to scale, by detecting edges and interpolating pixels along them. Does more blending than other scaling algorithms."
+msgid "Reduces pixelation by smoothing and rounding edges. Uses the Super Eagle algorithm (by Kreed) to scale. Does more blending than other scaling algorithms."
 msgstr ""
 
 msgctxt "#30026"
@@ -156,7 +156,23 @@ msgctxt "#30035"
 msgid "NTSC 256px S-video"
 msgstr ""
 
-
 msgctxt "#30036"
 msgid "NTSC 320px S-video"
 msgstr ""
+
+msgctxt "#30037"
+msgid "xBR-lv3"
+msgstr ""
+
+msgctxt "#30038"
+msgid "xBR-lv3 No Blend"
+msgstr ""
+
+msgctxt "#30039"
+msgid "Reduces pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm. Detects 6 edges, which shows as better rounded objects on screen. The interpolation blends pixel colors, so the final image is smoother than noblend versions."
+msgstr ""
+
+msgctxt "#30040"
+msgid "Reduces pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm. Detects 6 edges, which shows as better rounded objects on screen. The interpolation doesn't blend pixel colors."
+msgstr ""
+
