@@ -115,24 +115,22 @@ msgctxt "#30025"
 msgstr ""
 
 msgctxt "#30026"
-msgid "GBA Colors"
+msgid "Game Boy Advance"
 msgstr ""
 
 msgctxt "#30027"
-msgid "NDS Colors"
+msgid "Nintendo DS"
 msgstr ""
 
 msgctxt "#30028"
-msgid "PSP Colors"
+msgid "PlayStation Portable"
 msgstr ""
 
 msgctxt "#30029"
-msgid "VBA Colors"
+msgid "VBA Emulator"
 msgstr ""
 
-msgctxt "#30030"
-msgid "Handheld"
-msgstr ""
+#empty string with id 30030
 
 msgctxt "#30031"
 msgid "No description."
@@ -163,7 +161,7 @@ msgid "xBR-lv3"
 msgstr ""
 
 msgctxt "#30038"
-msgid "xBR-lv3 No Blend"
+msgid "xBR-lv3 (no blend)"
 msgstr ""
 
 msgctxt "#30039"

@@ -82,6 +82,42 @@
         <description>30002</description>
     </preset>
     <preset>
+        <path>libretro/hlsl/handheld/lcd-grid-v2-vba-color.cgp</path>
+        <!-- LCD Screen -->
+        <name>30032</name>
+        <!-- VBA Emulator -->
+        <category>30029</category>
+        <!-- No description. -->
+        <description>30031</description>
+    </preset>
+    <preset>
+        <path>libretro/hlsl/handheld/lcd-grid-v2-gba-color.cgp</path>
+        <!-- LCD Screen -->
+        <name>30032</name>
+        <!-- Game Boy Advance -->
+        <category>30026</category>
+        <!-- No description. -->
+        <description>30031</description>
+    </preset>
+    <preset>
+        <path>libretro/hlsl/handheld/lcd-grid-v2-nds-color.cgp</path>
+        <!-- LCD Screen -->
+        <name>30032</name>
+        <!-- Nintendo DS -->
+        <category>30027</category>
+        <!-- No description. -->
+        <description>30031</description>
+    </preset>
+    <preset>
+        <path>libretro/hlsl/handheld/lcd-grid-v2-psp-color.cgp</path>
+        <!-- LCD Screen -->
+        <name>30032</name>
+        <!-- PlayStation Portable -->
+        <category>30028</category>
+        <!-- No description. -->
+        <description>30031</description>
+    </preset>
+    <preset>
         <path>libretro/hlsl/eagle/super-eagle.cgp</path>
         <!-- Scaling Shader -->
         <name>30018</name>
@@ -126,40 +162,4 @@
         <!-- Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale, by detecting edges and interpolating pixels along them. Latest evolution of the standard xBR algorithm. The interpolation blends pixel colors, so that the final image is smoother than the other versions. -->
 <!--        <description>30022</description> -->
 <!--    </preset> -->
-    <preset>
-        <path>libretro/hlsl/handheld/lcd-grid-v2-vba-color.cgp</path>
-        <!-- Handheld -->
-        <name>30030</name>
-        <!-- VBA Colors -->
-        <category>30029</category>
-        <!-- No description. -->
-        <description>30031</description>
-    </preset>
-    <preset>
-        <path>libretro/hlsl/handheld/lcd-grid-v2-gba-color.cgp</path>
-        <!-- Handheld -->
-        <name>30030</name>
-        <!-- GBA Colors -->
-        <category>30026</category>
-        <!-- No description. -->
-        <description>30031</description>
-    </preset>
-    <preset>
-        <path>libretro/hlsl/handheld/lcd-grid-v2-nds-color.cgp</path>
-        <!-- Handheld -->
-        <name>30030</name>
-        <!-- NDS Colors -->
-        <category>30027</category>
-        <!-- No description. -->
-        <description>30031</description>
-    </preset>
-    <preset>
-        <path>libretro/hlsl/handheld/lcd-grid-v2-psp-color.cgp</path>
-        <!-- Handheld -->
-        <name>30030</name>
-        <!-- PSP Colors -->
-        <category>30028</category>
-        <!-- No description. -->
-        <description>30031</description>
-    </preset>
 </presets>
