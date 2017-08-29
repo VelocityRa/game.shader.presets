@@ -2,39 +2,30 @@
 <presets>
     <preset>
         <path>libretro/hlsl/ntsc/ntsc.cgp</path>
-        <!-- Television -->
-        <name>30010</name>
-        <!-- NTSC -->
+        <!-- TV-out -->
+        <name>30013</name>
+        <!-- NTSC RF -->
         <category>30011</category>
-        <!-- Replicates the analog signals that the consoles output to the TV. Features color distortion, blurring, NTSC color artifacts and dot crawl. -->
+        <!-- Replicates the analog signal that the console outputs to the TV through a coaxial RF connector. Features color distortion, blurring, NTSC color artifacts and dot crawl. -->
         <description>30012</description>
     </preset>
     <preset>
         <path>libretro/hlsl/cgp/tvout/tvout+ntsc-256px-composite.cgp</path>
         <!-- TV-out -->
         <name>30013</name>
-        <!-- NTSC 256px Composite -->
+        <!-- NTSC Composite -->
         <category>30014</category>
-        <!-- Replicates the analog signals that the consoles output to the TV. 256px downscale resolution. Emulates composite connector. Features color distortion, blurring, NTSC color artifacts. -->
+        <!-- Replicates the analog signal that the console outputs to the TV through the composite connector. Features color distortion, blurring, NTSC color artifacts. -->
         <description>30016</description>
-    </preset>
-    <preset>
-        <path>libretro/hlsl/cgp/tvout/tvout+ntsc-256px-svideo.cgp</path>
-        <!-- TV-out -->
-        <name>30013</name>
-        <!-- NTSC 256px S-video -->
-        <category>30035</category>
-        <!-- Replicates the analog signals that the consoles output to the TV. 256px downscale resolution. Emulates S-Video connector. Features color distortion, blurring, NTSC color artifacts. -->
-        <description>30015</description>
     </preset>
     <preset>
         <path>libretro/hlsl/cgp/tvout/tvout+ntsc-320px-svideo.cgp</path>
         <!-- TV-out -->
         <name>30013</name>
-        <!-- NTSC 320px S-video -->
-        <category>30036</category>
-        <!-- Replicates the analog signals that the consoles output to the TV. 320px downscale resolution. Emulates S-Video connector. Features color distortion, blurring, NTSC color artifacts. -->
-        <description>30017</description>
+        <!-- NTSC S-video -->
+        <category>30035</category>
+        <!-- Replicates the analog signal that the console outputs to the TV through a S-Video connector. Features color distortion, blurring, NTSC color artifacts. -->
+        <description>30015</description>
     </preset>
     <preset>
         <path>libretro/hlsl/crt/4xbr-hybrid-crt-b.cgp</path>
@@ -42,7 +33,7 @@
         <name>30004</name>
         <!-- 4xbr Hybrid -->
         <category>30003</category>
-        <!-- Emulates a CRT display. Basic. Features scan-lines, color correction, gamma correction and sharpening. -->
+        <!-- Emulates a CRT display. Features scan-lines, color correction, gamma correction and sharpening. -->
         <description>30005</description>
     </preset>
 <!--    <preset> -->
@@ -51,7 +42,7 @@
 <!--        <name>30004</name> -->
         <!-- Hylian Multipass -->
 <!--        <category>30006</category> -->
-        <!-- Emulates a CRT display. Advanced and fast. Aims only for picture quality, so it avoids effects that degrade the image. Features scan-lines, color correction, gamma correction, sharpening, CRT phosphor and CRT beam effects. -->
+        <!-- Emulates a CRT display. Features scan-lines, color correction, gamma correction, sharpening, CRT phosphor and CRT beam effects. -->
 <!--        <description>30007</description> -->
 <!--    </preset> -->
 <!--    <preset> -->
@@ -60,7 +51,7 @@
 <!--        <name>30004</name> -->
         <!-- Royale -->
 <!--        <category>30008</category> -->
-        <!-- Emulates a CRT display. Highly advanced multi-pass shader. Resource intensive. Features scan-lines, color correction, gamma correction, sharpening, CRT phosphor emulation, halation, refractive diffusion, curvature and anti-aliasing. -->
+        <!-- Emulates a CRT display. Resource intensive. Features scan-lines, color correction, gamma correction, sharpening, CRT phosphor emulation, halation, refractive diffusion, curvature and anti-aliasing. -->
 <!--        <description>30009</description> -->
 <!--    </preset> -->
     <preset>
@@ -82,21 +73,12 @@
         <description>30002</description>
     </preset>
     <preset>
-        <path>libretro/hlsl/handheld/lcd-grid-v2-vba-color.cgp</path>
-        <!-- LCD Screen -->
-        <name>30032</name>
-        <!-- VBA Emulator -->
-        <category>30029</category>
-        <!-- No description. -->
-        <description>30031</description>
-    </preset>
-    <preset>
         <path>libretro/hlsl/handheld/lcd-grid-v2-gba-color.cgp</path>
         <!-- LCD Screen -->
         <name>30032</name>
         <!-- Game Boy Advance -->
         <category>30026</category>
-        <!-- No description. -->
+        <!-- Replicates the 3-by-2-inch color LCD screen of the Game Boy Advance. -->
         <description>30031</description>
     </preset>
     <preset>
@@ -105,8 +87,8 @@
         <name>30032</name>
         <!-- Nintendo DS -->
         <category>30027</category>
-        <!-- No description. -->
-        <description>30031</description>
+        <!-- Replecates the TFT LCD screen of the Nintendo DS. -->
+        <description>30030</description>
     </preset>
     <preset>
         <path>libretro/hlsl/handheld/lcd-grid-v2-psp-color.cgp</path>
@@ -114,8 +96,8 @@
         <name>30032</name>
         <!-- PlayStation Portable -->
         <category>30028</category>
-        <!-- No description. -->
-        <description>30031</description>
+        <!-- Replicates the 4.3-inch TFT LCD screen of the PlayStation Portable. -->
+        <description>30029</description>
     </preset>
     <preset>
         <path>libretro/hlsl/eagle/super-eagle.cgp</path>
@@ -123,7 +105,7 @@
         <name>30018</name>
         <!-- Super Eagle -->
         <category>30024</category>
-        <!-- Attempts to reduce pixelation by smoothing and rounding edges. Uses the Super Eagle algorithm (by Kreed) to scale, by detecting edges and interpolating pixels along them. Does more blending than other scaling algorithms. -->
+        <!-- Reduces pixelation by smoothing and rounding edges. Uses the Super Eagle algorithm (by Kreed). -->
         <description>30025</description>
     </preset>
     <preset>
@@ -132,7 +114,7 @@
         <name>30018</name>
         <!-- xBR-lv2 -->
         <category>30019</category>
-        <!-- Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale, by detecting edges and interpolating pixels along them. -->
+        <!-- Reduces pixelation by smoothing and rounding edges. Uses the xBR algorithm (by rules). -->
         <description>30020</description>
     </preset>
     <preset>
@@ -141,16 +123,16 @@
         <name>30018</name>
         <!-- xBR-lv3 -->
         <category>30037</category>
-        <!-- Reduces pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm. Detects 6 edges, which shows as better rounded objects on screen. The interpolation blends pixel colors, so the final image is smoother than noblend versions. -->
+        <!-- Reduces pixelation by smoothing and rounding edges. Uses the xBR algorithm (by rules). The final image is smoother than no-blend version. -->
         <description>30039</description>
     </preset>
     <preset>
         <path>libretro/hlsl/xbr/xbr-lv3-noblend.cgp</path>
         <!-- Scaling Shader -->
         <name>30018</name>
-        <!-- xBR-lv3 No Blend -->
+        <!-- xBR-lv3 (no blend) -->
         <category>30038</category>
-        <!-- Reduces pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm. Detects 6 edges, which shows as better rounded objects on screen. The interpolation doesn't blend pixel colors. -->
+        <!-- Reduces pixelation by smoothing and rounding edges. Uses the xBR algorithm (by rules). The interpolation doesn't blend pixel colors. -->
         <description>30040</description>
     </preset>
 <!--    <preset> -->
@@ -159,7 +141,7 @@
 <!--        <name>30018</name> -->
         <!-- xBR-mlv4 -->
 <!--        <category>30021</category> -->
-        <!-- Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale, by detecting edges and interpolating pixels along them. Latest evolution of the standard xBR algorithm. The interpolation blends pixel colors, so that the final image is smoother than the other versions. -->
+        <!-- Reduces pixelation by smoothing and rounding edges. Uses the latest evolution of the standard xBR algorithm. The image is smoother than other versions. -->
 <!--        <description>30022</description> -->
 <!--    </preset> -->
 </presets>

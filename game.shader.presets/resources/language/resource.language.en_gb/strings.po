@@ -35,7 +35,7 @@ msgid "CRT Display"
 msgstr ""
 
 msgctxt "#30005"
-msgid "Emulates a CRT display. Basic. Features scan-lines, color correction, gamma correction and sharpening."
+msgid "Emulates a CRT display. Features scan-lines, color correction, gamma correction and sharpening."
 msgstr ""
 
 msgctxt "#30006"
@@ -43,7 +43,7 @@ msgid "Hylian Multipass"
 msgstr ""
 
 msgctxt "#30007"
-msgid "Emulates a CRT display. Advanced and fast. Aims only for picture quality, so it avoids effects that degrade the image. Features scan-lines, color correction, gamma correction, sharpening, CRT phosphor and CRT beam effects."
+msgid "Emulates a CRT display. Features scan-lines, color correction, gamma correction, sharpening, CRT phosphor and CRT beam effects."
 msgstr ""
 
 msgctxt "#30008"
@@ -51,19 +51,17 @@ msgid "Royale"
 msgstr ""
 
 msgctxt "#30009"
-msgid "Emulates a CRT display. Highly advanced multi-pass shader. Resource intensive. Features scan-lines, color correction, gamma correction, sharpening, CRT phosphor emulation, halation, refractive diffusion, curvature and anti-aliasing."
+msgid "Emulates a CRT display. Resource intensive. Features scan-lines, color correction, gamma correction, sharpening, CRT phosphor emulation, halation, refractive diffusion, curvature and anti-aliasing."
 msgstr ""
 
-msgctxt "#30010"
-msgid "Television"
-msgstr ""
+#empty string with id 30010
 
 msgctxt "#30011"
-msgid "NTSC"
+msgid "NTSC RF"
 msgstr ""
 
 msgctxt "#30012"
-msgid "Replicates the analog signals that the consoles output to the TV. Feature color distortion, blurring, NTSC color artifacts and dot crawl."
+msgid "Replicates the analog signal that the console outputs to the TV through a coaxial RF connector. Features color distortion, blurring, NTSC color artifacts and dot crawl."
 msgstr ""
 
 msgctxt "#30013"
@@ -71,20 +69,18 @@ msgid "TV-out"
 msgstr ""
 
 msgctxt "#30014"
-msgid "NTSC 256px Composite"
+msgid "NTSC Composite"
 msgstr ""
 
 msgctxt "#30015"
-msgid "Replicates the analog signals that the consoles output to the TV. 256px downscale resolution. Emulates S-Video connector. Features color distortion, blurring, NTSC color artifacts."
+msgid "Replicates the analog signal that the console outputs to the TV through a S-Video connector. Features color distortion, blurring, NTSC color artifacts."
 msgstr ""
 
 msgctxt "#30016"
-msgid "Replicates the analog signals that the consoles output to the TV. 256px downscale resolution. Emulates composite connector. Features color distortion, blurring, NTSC color artifacts."
+msgid "Replicates the analog signal that the console outputs to the TV through a composite connector. Features color distortion, blurring, NTSC color artifacts."
 msgstr ""
 
-msgctxt "#30017"
-msgid "Replicates the analog signals that the consoles output to the TV. 320px downscale resolution. Emulates S-Video connector. Features color distortion, blurring, NTSC color artifacts."
-msgstr ""
+#empty string with id 30017
 
 msgctxt "#30018"
 msgid "Scaling Shader"
@@ -95,7 +91,7 @@ msgid "xBR-lv2 (fast)"
 msgstr ""
 
 msgctxt "#30020"
-+msgid "Attempts to reduce pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale. Simplified lvl2 implementation. Detects 4 edges. Much faster than the standard version, though it sacrifices some quality."
+msgid "Reduces pixelation by smoothing and rounding edges. Uses the xBR algorithm (by rules)."
 msgstr ""
 
 msgctxt "#30021"
@@ -103,7 +99,7 @@ msgid "xBR-mlv4"
 msgstr ""
 
 msgctxt "#30022"
-+msgid "Reduces pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm to scale. Latest evolution of the standard xBR algorithm. The interpolation blends pixel colors, so that the final image is smoother than the other versions."
+msgid "Reduces pixelation by smoothing and rounding edges. Uses the latest evolution of the standard xBR algorithm. The image is smoother than other versions."
 msgstr ""
 
 msgctxt "#30024"
@@ -111,7 +107,7 @@ msgid "Super Eagle"
 msgstr ""
 
 msgctxt "#30025"
-+msgid "Reduces pixelation by smoothing and rounding edges. Uses the Super Eagle algorithm (by Kreed) to scale. Does more blending than other scaling algorithms."
+msgid "Reduces pixelation by smoothing and rounding edges. Uses the Super Eagle algorithm (by Kreed)."
 msgstr ""
 
 msgctxt "#30026"
@@ -127,13 +123,15 @@ msgid "PlayStation Portable"
 msgstr ""
 
 msgctxt "#30029"
-msgid "VBA Emulator"
+msgid "Replicates the 4.3-inch TFT LCD screen of the PlayStation Portable."
 msgstr ""
 
-#empty string with id 30030
+msgctxt "#30030"
+msgid "Replecates the TFT LCD screen of the Nintendo DS."
+msgstr ""
 
 msgctxt "#30031"
-msgid "No description."
+msgid "Replicates the 3-by-2-inch color LCD screen of the Game Boy Advance."
 msgstr ""
 
 msgctxt "#30032"
@@ -145,16 +143,14 @@ msgid "LCD3x"
 msgstr ""
 
 msgctxt "#30034"
-msgid "LCD3x is an image filter that simulates the aspect of an LCD screen while at the same time increasing the size of the source image."
+msgid "LCD3x is an image filter by gigaherz that simulates the aspect of an LCD screen while at the same time increasing the size of the source image."
 msgstr ""
 
 msgctxt "#30035"
-msgid "NTSC 256px S-video"
+msgid "NTSC S-video"
 msgstr ""
 
-msgctxt "#30036"
-msgid "NTSC 320px S-video"
-msgstr ""
+#empty string with id 30036
 
 msgctxt "#30037"
 msgid "xBR-lv3"
@@ -165,9 +161,9 @@ msgid "xBR-lv3 (no blend)"
 msgstr ""
 
 msgctxt "#30039"
-msgid "Reduces pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm. Detects 6 edges, which shows as better rounded objects on screen. The interpolation blends pixel colors, so the final image is smoother than noblend versions."
+msgid "Reduces pixelation by smoothing and rounding edges. Uses the xBR algorithm (by rules). The final image is smoother than no-blend version."
 msgstr ""
 
 msgctxt "#30040"
-msgid "Reduces pixelation by smoothing and rounding edges. Uses the xBR (scale by rules) algorithm. Detects 6 edges, which shows as better rounded objects on screen. The interpolation doesn't blend pixel colors."
+msgid "Reduces pixelation by smoothing and rounding edges. Uses the xBR algorithm (by rules). The interpolation doesn't blend pixel colors."
 msgstr ""
