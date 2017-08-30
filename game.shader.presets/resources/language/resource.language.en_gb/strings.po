@@ -23,11 +23,11 @@ msgid "Game Boy"
 msgstr ""
 
 msgctxt "#30002"
-msgid "Replicates the dot matrix screen of a Game Boy, complete with the ghosting problems to reproduce certain visual effects."
+msgid "Replicates the 2.6-inch dot matrix screen of the Game Boy. Features the ghosting problems of the original handheld."
 msgstr ""
 
 msgctxt "#30003"
-msgid "4xbr Hybrid"
+msgid "4xBR Hybrid"
 msgstr ""
 
 msgctxt "#30004"
@@ -39,7 +39,7 @@ msgid "Emulates a CRT display. Features scan-lines, color correction, gamma corr
 msgstr ""
 
 msgctxt "#30006"
-msgid "Hylian Multipass"
+msgid "Hylian"
 msgstr ""
 
 msgctxt "#30007"
@@ -61,7 +61,7 @@ msgid "NTSC RF"
 msgstr ""
 
 msgctxt "#30012"
-msgid "Replicates the analog signal that the console outputs to the TV through a coaxial RF connector. Features color distortion, blurring, NTSC color artifacts and dot crawl."
+msgid "Replicates an analog signal through a coaxial RF connector. Features color distortion, blurring, NTSC color artifacts and dot crawl."
 msgstr ""
 
 msgctxt "#30013"
@@ -73,11 +73,11 @@ msgid "NTSC Composite"
 msgstr ""
 
 msgctxt "#30015"
-msgid "Replicates the analog signal that the console outputs to the TV through a S-Video connector. Features color distortion, blurring, NTSC color artifacts."
+msgid "Replicates an analog signal through an S-Video connector. Features color distortion, blurring, NTSC color artifacts."
 msgstr ""
 
 msgctxt "#30016"
-msgid "Replicates the analog signal that the console outputs to the TV through a composite connector. Features color distortion, blurring, NTSC color artifacts."
+msgid "Replicates an analog signal through a composite connector. Features color distortion, blurring, NTSC color artifacts."
 msgstr ""
 
 #empty string with id 30017
@@ -91,7 +91,7 @@ msgid "xBR-lv2 (fast)"
 msgstr ""
 
 msgctxt "#30020"
-msgid "Reduces pixelation by smoothing and rounding edges. Uses the xBR algorithm (by rules)."
+msgid "Smooths and rounds edges to reduce pixelation. Written by Hyllian."
 msgstr ""
 
 msgctxt "#30021"
@@ -99,7 +99,7 @@ msgid "xBR-mlv4"
 msgstr ""
 
 msgctxt "#30022"
-msgid "Reduces pixelation by smoothing and rounding edges. Uses the latest evolution of the standard xBR algorithm. The image is smoother than other versions."
+msgid "Smooths and rounds edges to reduce pixelation. Image is smoother than other versions. Written by Hyllian."
 msgstr ""
 
 msgctxt "#30024"
@@ -107,7 +107,7 @@ msgid "Super Eagle"
 msgstr ""
 
 msgctxt "#30025"
-msgid "Reduces pixelation by smoothing and rounding edges. Uses the Super Eagle algorithm (by Kreed)."
+msgid "Smooths and rounds edges to reduce pixelation. Written by Derek Liauw Kie Fa."
 msgstr ""
 
 msgctxt "#30026"
@@ -123,15 +123,15 @@ msgid "PlayStation Portable"
 msgstr ""
 
 msgctxt "#30029"
-msgid "Replicates the 4.3-inch TFT LCD screen of the PlayStation Portable."
+msgid "Replicates the 4.3-inch LCD screen of the PlayStation Portable."
 msgstr ""
 
 msgctxt "#30030"
-msgid "Replecates the TFT LCD screen of the Nintendo DS."
+msgid "Replecates the 3-inch LCD screen of the Nintendo DS."
 msgstr ""
 
 msgctxt "#30031"
-msgid "Replicates the 3-by-2-inch color LCD screen of the Game Boy Advance."
+msgid "Replicates the 2.9-inch color LCD screen of the Game Boy Advance."
 msgstr ""
 
 msgctxt "#30032"
@@ -143,7 +143,7 @@ msgid "LCD3x"
 msgstr ""
 
 msgctxt "#30034"
-msgid "LCD3x is an image filter by gigaherz that simulates the aspect of an LCD screen while at the same time increasing the size of the source image."
+msgid "Simulates an LCD screen. Written by Gigaherz."
 msgstr ""
 
 msgctxt "#30035"
@@ -161,9 +161,9 @@ msgid "xBR-lv3 (no blend)"
 msgstr ""
 
 msgctxt "#30039"
-msgid "Reduces pixelation by smoothing and rounding edges. Uses the xBR algorithm (by rules). The final image is smoother than no-blend version."
+msgid "Smooths and rounds edges to reduce pixelation. Smoother than the no-blend version. Written by Hyllian."
 msgstr ""
 
 msgctxt "#30040"
-msgid "Reduces pixelation by smoothing and rounding edges. Uses the xBR algorithm (by rules). The interpolation doesn't blend pixel colors."
+msgid "Smooths and rounds edges to reduce pixelation. Pixel colors are not blended together. Written by Hyllian."
 msgstr ""

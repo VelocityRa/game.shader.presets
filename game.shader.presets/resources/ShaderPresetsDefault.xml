@@ -6,7 +6,7 @@
         <name>30013</name>
         <!-- NTSC RF -->
         <category>30011</category>
-        <!-- Replicates the analog signal that the console outputs to the TV through a coaxial RF connector. Features color distortion, blurring, NTSC color artifacts and dot crawl. -->
+        <!-- Replicates an analog signal through a coaxial RF connector. Features color distortion, blurring, NTSC color artifacts and dot crawl. -->
         <description>30012</description>
     </preset>
     <preset>
@@ -15,7 +15,7 @@
         <name>30013</name>
         <!-- NTSC Composite -->
         <category>30014</category>
-        <!-- Replicates the analog signal that the console outputs to the TV through the composite connector. Features color distortion, blurring, NTSC color artifacts. -->
+        <!-- Replicates an analog signal through a composite connector. Features color distortion, blurring, NTSC color artifacts. -->
         <description>30016</description>
     </preset>
     <preset>
@@ -24,14 +24,14 @@
         <name>30013</name>
         <!-- NTSC S-video -->
         <category>30035</category>
-        <!-- Replicates the analog signal that the console outputs to the TV through a S-Video connector. Features color distortion, blurring, NTSC color artifacts. -->
+        <!-- Replicates an analog signal through an S-Video connector. Features color distortion, blurring, NTSC color artifacts. -->
         <description>30015</description>
     </preset>
     <preset>
         <path>libretro/hlsl/crt/4xbr-hybrid-crt-b.cgp</path>
         <!-- CRT Display -->
         <name>30004</name>
-        <!-- 4xbr Hybrid -->
+        <!-- 4xBR Hybrid -->
         <category>30003</category>
         <!-- Emulates a CRT display. Features scan-lines, color correction, gamma correction and sharpening. -->
         <description>30005</description>
@@ -40,7 +40,7 @@
 <!--        <path>libretro/hlsl/crt/crt-hyllian-multipass.cgp</path> -->
         <!-- CRT Display -->
 <!--        <name>30004</name> -->
-        <!-- Hylian Multipass -->
+        <!-- Hylian -->
 <!--        <category>30006</category> -->
         <!-- Emulates a CRT display. Features scan-lines, color correction, gamma correction, sharpening, CRT phosphor and CRT beam effects. -->
 <!--        <description>30007</description> -->
@@ -60,7 +60,7 @@
         <name>30032</name>
         <!-- LCD3x -->
         <category>30033</category>
-        <!-- LCD3x is an image filter by gigaherz that simulates the aspect of an LCD screen while at the same time increasing the size of the source image. -->
+        <!-- Simulates an LCD screen. Written by Gigaherz. -->
         <description>30034</description>
     </preset>
     <preset>
@@ -69,7 +69,7 @@
         <name>30032</name>
         <!-- Game Boy -->
         <category>30001</category>
-        <!-- Replicates the dot matrix screen of a Game Boy, complete with the ghosting problems to reproduce certain visual effects. -->
+        <!-- Replicates the 2.6-inch dot matrix screen of the Game Boy. Features the ghosting problems of the original handheld. -->
         <description>30002</description>
     </preset>
     <preset>
@@ -78,7 +78,7 @@
         <name>30032</name>
         <!-- Game Boy Advance -->
         <category>30026</category>
-        <!-- Replicates the 3-by-2-inch color LCD screen of the Game Boy Advance. -->
+        <!-- Replicates the 2.9-inch color LCD screen of the Game Boy Advance. -->
         <description>30031</description>
     </preset>
     <preset>
@@ -87,7 +87,7 @@
         <name>30032</name>
         <!-- Nintendo DS -->
         <category>30027</category>
-        <!-- Replecates the TFT LCD screen of the Nintendo DS. -->
+        <!-- Replecates the 3-inch LCD screen of the Nintendo DS. -->
         <description>30030</description>
     </preset>
     <preset>
@@ -96,7 +96,7 @@
         <name>30032</name>
         <!-- PlayStation Portable -->
         <category>30028</category>
-        <!-- Replicates the 4.3-inch TFT LCD screen of the PlayStation Portable. -->
+        <!-- Replicates the 4.3-inch LCD screen of the PlayStation Portable. -->
         <description>30029</description>
     </preset>
     <preset>
@@ -105,7 +105,7 @@
         <name>30018</name>
         <!-- Super Eagle -->
         <category>30024</category>
-        <!-- Reduces pixelation by smoothing and rounding edges. Uses the Super Eagle algorithm (by Kreed). -->
+        <!-- Smooths and rounds edges to reduce pixelation. Written by Derek Liauw Kie Fa. -->
         <description>30025</description>
     </preset>
     <preset>
@@ -114,7 +114,7 @@
         <name>30018</name>
         <!-- xBR-lv2 -->
         <category>30019</category>
-        <!-- Reduces pixelation by smoothing and rounding edges. Uses the xBR algorithm (by rules). -->
+        <!-- Smooths and rounds edges to reduce pixelation. Written by Hyllian. -->
         <description>30020</description>
     </preset>
     <preset>
@@ -123,7 +123,7 @@
         <name>30018</name>
         <!-- xBR-lv3 -->
         <category>30037</category>
-        <!-- Reduces pixelation by smoothing and rounding edges. Uses the xBR algorithm (by rules). The final image is smoother than no-blend version. -->
+        <!-- Smooths and rounds edges to reduce pixelation. Smoother than the no-blend version. Written by Hyllian. -->
         <description>30039</description>
     </preset>
     <preset>
@@ -132,7 +132,7 @@
         <name>30018</name>
         <!-- xBR-lv3 (no blend) -->
         <category>30038</category>
-        <!-- Reduces pixelation by smoothing and rounding edges. Uses the xBR algorithm (by rules). The interpolation doesn't blend pixel colors. -->
+        <!-- Smooths and rounds edges to reduce pixelation. Pixel colors are not blended together. Written by Hyllian. -->
         <description>30040</description>
     </preset>
 <!--    <preset> -->
@@ -141,7 +141,7 @@
 <!--        <name>30018</name> -->
         <!-- xBR-mlv4 -->
 <!--        <category>30021</category> -->
-        <!-- Reduces pixelation by smoothing and rounding edges. Uses the latest evolution of the standard xBR algorithm. The image is smoother than other versions. -->
+        <!-- Smooths and rounds edges to reduce pixelation. Image is smoother than other versions. Written by Hyllian. -->
 <!--        <description>30022</description> -->
 <!--    </preset> -->
 </presets>
