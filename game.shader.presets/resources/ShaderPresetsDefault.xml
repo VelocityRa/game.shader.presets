@@ -42,7 +42,7 @@
         <category>30004</category>
         <!-- CRT Geom -->
         <name>30010</name>
-        <!-- Emulates a CRT display. Features scan-lines, color correction, gamma correction and sharpening. -->
+        <!-- Emulates a CRT display. Features scan-lines, color correction, gamma correction, sharpening, curvature, interlacing, phosphor and halation. -->
         <description>30036</description>
     </preset>
 <!--    <preset> -->
