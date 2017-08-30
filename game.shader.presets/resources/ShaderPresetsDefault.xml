@@ -36,6 +36,15 @@
         <!-- Emulates a CRT display. Features scan-lines, color correction, gamma correction and sharpening. -->
         <description>30005</description>
     </preset>
+    <preset>
+        <path>libretro/hlsl/crt/crt-geom.cgp</path>
+        <!-- CRT Display -->
+        <category>30004</category>
+        <!-- CRT Geom -->
+        <name>30010</name>
+        <!-- Emulates a CRT display. Features scan-lines, color correction, gamma correction and sharpening. -->
+        <description>30036</description>
+    </preset>
 <!--    <preset> -->
 <!--        <path>libretro/hlsl/crt/crt-hyllian-multipass.cgp</path> -->
         <!-- CRT Display -->

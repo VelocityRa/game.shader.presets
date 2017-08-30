@@ -54,7 +54,9 @@ msgctxt "#30009"
 msgid "Emulates a CRT display. Resource intensive. Features scan-lines, color correction, gamma correction, sharpening, CRT phosphor emulation, halation, refractive diffusion, curvature and anti-aliasing."
 msgstr ""
 
-#empty string with id 30010
+msgctxt "#30010"
+msgid "CRT Geom"
+msgstr ""
 
 msgctxt "#30011"
 msgid "NTSC RF"
@@ -150,7 +152,9 @@ msgctxt "#30035"
 msgid "NTSC S-video"
 msgstr ""
 
-#empty string with id 30036
+msgctxt "#30036"
+msgid "Emulates a CRT display. Features scan-lines, color correction, gamma correction and sharpening."
+msgstr ""
 
 msgctxt "#30037"
 msgid "xBR-lv3"
