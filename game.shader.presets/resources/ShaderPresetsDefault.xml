@@ -3,144 +3,144 @@
     <preset>
         <path>libretro/hlsl/ntsc/ntsc.cgp</path>
         <!-- TV-out -->
-        <name>30013</name>
+        <category>30013</category>
         <!-- NTSC RF -->
-        <category>30011</category>
+        <name>30011</name>
         <!-- Replicates an analog signal through a coaxial RF connector. Features color distortion, blurring, NTSC color artifacts and dot crawl. -->
         <description>30012</description>
     </preset>
     <preset>
         <path>libretro/hlsl/cgp/tvout/tvout+ntsc-256px-composite.cgp</path>
         <!-- TV-out -->
-        <name>30013</name>
+        <category>30013</category>
         <!-- NTSC Composite -->
-        <category>30014</category>
+        <name>30014</name>
         <!-- Replicates an analog signal through a composite connector. Features color distortion, blurring, NTSC color artifacts. -->
         <description>30016</description>
     </preset>
     <preset>
         <path>libretro/hlsl/cgp/tvout/tvout+ntsc-320px-svideo.cgp</path>
         <!-- TV-out -->
-        <name>30013</name>
+        <category>30013</category>
         <!-- NTSC S-video -->
-        <category>30035</category>
+        <name>30035</name>
         <!-- Replicates an analog signal through an S-Video connector. Features color distortion, blurring, NTSC color artifacts. -->
         <description>30015</description>
     </preset>
     <preset>
         <path>libretro/hlsl/crt/4xbr-hybrid-crt-b.cgp</path>
         <!-- CRT Display -->
-        <name>30004</name>
+        <category>30004</category>
         <!-- 4xBR Hybrid -->
-        <category>30003</category>
+        <name>30003</name>
         <!-- Emulates a CRT display. Features scan-lines, color correction, gamma correction and sharpening. -->
         <description>30005</description>
     </preset>
 <!--    <preset> -->
 <!--        <path>libretro/hlsl/crt/crt-hyllian-multipass.cgp</path> -->
         <!-- CRT Display -->
-<!--        <name>30004</name> -->
+<!--        <category>30004</category> -->
         <!-- Hylian -->
-<!--        <category>30006</category> -->
+<!--        <name>30006</name> -->
         <!-- Emulates a CRT display. Features scan-lines, color correction, gamma correction, sharpening, CRT phosphor and CRT beam effects. -->
 <!--        <description>30007</description> -->
 <!--    </preset> -->
 <!--    <preset> -->
 <!--        <path>libretro/hlsl/cgp/crt-royale-kurozumi.cgp</path> -->
         <!-- CRT Display -->
-<!--        <name>30004</name> -->
+<!--        <category>30004</category> -->
         <!-- Royale -->
-<!--        <category>30008</category> -->
+<!--        <name>30008</name> -->
         <!-- Emulates a CRT display. Resource intensive. Features scan-lines, color correction, gamma correction, sharpening, CRT phosphor emulation, halation, refractive diffusion, curvature and anti-aliasing. -->
 <!--        <description>30009</description> -->
 <!--    </preset> -->
     <preset>
         <path>libretro/hlsl/handheld/lcd3x.cgp</path>
         <!-- LCD Screen -->
-        <name>30032</name>
+        <category>30032</category>
         <!-- LCD3x -->
-        <category>30033</category>
+        <name>30033</name>
         <!-- Simulates an LCD screen. Written by Gigaherz. -->
         <description>30034</description>
     </preset>
     <preset>
         <path>libretro/hlsl/cgp/gameboy-screen-grid.cgp</path>
         <!-- LCD Screen -->
-        <name>30032</name>
+        <category>30032</category>
         <!-- Game Boy -->
-        <category>30001</category>
+        <name>30001</name>
         <!-- Replicates the 2.6-inch dot matrix screen of the Game Boy. Features the ghosting problems of the original handheld. -->
         <description>30002</description>
     </preset>
     <preset>
         <path>libretro/hlsl/handheld/lcd-grid-v2-gba-color.cgp</path>
         <!-- LCD Screen -->
-        <name>30032</name>
+        <category>30032</category>
         <!-- Game Boy Advance -->
-        <category>30026</category>
+        <name>30026</name>
         <!-- Replicates the 2.9-inch color LCD screen of the Game Boy Advance. -->
         <description>30031</description>
     </preset>
     <preset>
         <path>libretro/hlsl/handheld/lcd-grid-v2-nds-color.cgp</path>
         <!-- LCD Screen -->
-        <name>30032</name>
+        <category>30032</category>
         <!-- Nintendo DS -->
-        <category>30027</category>
+        <name>30027</name>
         <!-- Replecates the 3-inch LCD screen of the Nintendo DS. -->
         <description>30030</description>
     </preset>
     <preset>
         <path>libretro/hlsl/handheld/lcd-grid-v2-psp-color.cgp</path>
         <!-- LCD Screen -->
-        <name>30032</name>
+        <category>30032</category>
         <!-- PlayStation Portable -->
-        <category>30028</category>
+        <name>30028</name>
         <!-- Replicates the 4.3-inch LCD screen of the PlayStation Portable. -->
         <description>30029</description>
     </preset>
     <preset>
         <path>libretro/hlsl/eagle/super-eagle.cgp</path>
         <!-- Scaling Shader -->
-        <name>30018</name>
+        <category>30018</category>
         <!-- Super Eagle -->
-        <category>30024</category>
+        <name>30024</name>
         <!-- Smooths and rounds edges to reduce pixelation. Written by Derek Liauw Kie Fa. -->
         <description>30025</description>
     </preset>
     <preset>
         <path>libretro/hlsl/xbr/xbr-lv2-fast.cgp</path>
         <!-- Scaling Shader -->
-        <name>30018</name>
+        <category>30018</category>
         <!-- xBR-lv2 -->
-        <category>30019</category>
+        <name>30019</name>
         <!-- Smooths and rounds edges to reduce pixelation. Written by Hyllian. -->
         <description>30020</description>
     </preset>
     <preset>
         <path>libretro/hlsl/xbr/xbr-lv3.cgp</path>
         <!-- Scaling Shader -->
-        <name>30018</name>
+        <category>30018</category>
         <!-- xBR-lv3 -->
-        <category>30037</category>
+        <name>30037</name>
         <!-- Smooths and rounds edges to reduce pixelation. Smoother than the no-blend version. Written by Hyllian. -->
         <description>30039</description>
     </preset>
     <preset>
         <path>libretro/hlsl/xbr/xbr-lv3-noblend.cgp</path>
         <!-- Scaling Shader -->
-        <name>30018</name>
+        <category>30018</category>
         <!-- xBR-lv3 (no blend) -->
-        <category>30038</category>
+        <name>30038</name>
         <!-- Smooths and rounds edges to reduce pixelation. Pixel colors are not blended together. Written by Hyllian. -->
         <description>30040</description>
     </preset>
 <!--    <preset> -->
 <!--        <path>libretro/hlsl/xbr/xbr-mlv4-multipass.cgp</path> -->
         <!-- Scaling Shader -->
-<!--        <name>30018</name> -->
+<!--        <category>30018</category> -->
         <!-- xBR-mlv4 -->
-<!--        <category>30021</category> -->
+<!--        <name>30021</name> -->
         <!-- Smooths and rounds edges to reduce pixelation. Image is smoother than other versions. Written by Hyllian. -->
 <!--        <description>30022</description> -->
 <!--    </preset> -->
