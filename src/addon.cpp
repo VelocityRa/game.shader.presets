@@ -22,7 +22,6 @@
 #include "addon.h"
 
 #include "file/config_file.h"
-#include "filesystem/Filesystem.h"
 #include "gfx/video_shader_parse.h"
 #include "log/Log.h"
 #include "log/LogAddon.h"
@@ -46,8 +45,6 @@ struct shader_preset_file
 
 CShaderPreset::~CShaderPreset()
 {
-  CFilesystem::Deinitialize();
-
   CLog::Get().SetType(SYS_LOG_TYPE_CONSOLE);
 }
 
@@ -56,9 +53,6 @@ CShaderPreset::~CShaderPreset()
 ADDON_STATUS CShaderPreset::Create()
 {
   CLog::Get().SetPipe(new CLogAddon());
-
-  if (!CFilesystem::Initialize())
-    return ADDON_STATUS_PERMANENT_FAILURE;
 
   return GetStatus();
 }

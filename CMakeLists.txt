@@ -20,14 +20,6 @@ include_directories(${INCLUDES}
                     ${p8-platform_INCLUDE_DIRS})
 
 set(SHADERPRESETS_SOURCES src/addon.cpp
-                     src/filesystem/DirectoryCache.cpp
-                     src/filesystem/DirectoryUtils.cpp
-                     src/filesystem/Filesystem.cpp
-                     src/filesystem/FileUtils.cpp
-                     src/filesystem/generic/ReadableFile.cpp
-                     src/filesystem/generic/SeekableFile.cpp
-                     src/filesystem/vfs/VFSDirectoryUtils.cpp
-                     src/filesystem/vfs/VFSFileUtils.cpp
                      src/log/Log.cpp
                      src/log/LogAddon.cpp
                      src/log/LogConsole.cpp
@@ -50,18 +42,6 @@ set(SHADERPRESETS_SOURCES src/addon.cpp
                      src/depends/libretro-common/string/stdstring.c)
 
 set(SHADERPRESETS_HEADERS src/addon.h
-                     src/filesystem/DirectoryCache.h
-                     src/filesystem/DirectoryUtils.h
-                     src/filesystem/Filesystem.h
-                     src/filesystem/FilesystemTypes.h
-                     src/filesystem/FileUtils.h
-                     src/filesystem/generic/ReadableFile.h
-                     src/filesystem/generic/SeekableFile.h
-                     src/filesystem/IDirectoryUtils.h
-                     src/filesystem/IFile.h
-                     src/filesystem/IFileUtils.h
-                     src/filesystem/vfs/VFSDirectoryUtils.h
-                     src/filesystem/vfs/VFSFileUtils.h
                      src/log/ILog.h
                      src/log/Log.h
                      src/log/LogAddon.h
