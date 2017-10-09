@@ -21,10 +21,11 @@
  */
 
 #include <kodi/addon-instance/ShaderPreset.h>
+#include <kodi/AddonBase.h>
 
 struct rarch_video_shader;
 
-class CShaderPreset
+class ATTRIBUTE_HIDDEN CShaderPreset
   : public kodi::addon::CAddonBase,
     public kodi::addon::CInstanceShaderPreset
 {
