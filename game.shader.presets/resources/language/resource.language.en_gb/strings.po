@@ -171,3 +171,55 @@ msgstr ""
 msgctxt "#30040"
 msgid "Smooths and rounds edges to reduce pixelation. Pixel colors are not blended together. Written by Hyllian."
 msgstr ""
+
+msgctxt "#30041"
+msgid "VHS"
+msgstr ""
+
+msgctxt "#30042"
+msgid "6xBZR Linear"
+msgstr ""
+
+msgctxt "#30043"
+msgid "CRT Glow Lanczos"
+msgstr ""
+
+msgctxt "#30044"
+msgid "CRT Lottes Multipass"
+msgstr ""
+
+msgctxt "#30045"
+msgid "Anti-aliasing"
+msgstr ""
+
+msgctxt "#30046"
+msgid "Advanced AA"
+msgstr ""
+
+msgctxt "#30047"
+msgid "AGB 001"
+msgstr ""
+
+msgctxt "#30048"
+msgid "Color"
+msgstr ""
+
+msgctxt "#30049"
+msgid "CRT Hyllian 3D"
+msgstr ""
+
+msgctxt "#30050"
+msgid "Pal"
+msgstr ""
+
+msgctxt "#30051"
+msgid "AdvCartoon"
+msgstr ""
+
+msgctxt "#30052"
+msgid "Dot"
+msgstr ""
+
+msgctxt "#30053"
+msgid "CRT Easymode"
+msgstr ""

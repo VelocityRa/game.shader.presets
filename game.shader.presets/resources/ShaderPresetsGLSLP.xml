@@ -1,0 +1,101 @@
+<?xml version="1.0" ?>
+<presets>
+    <preset>
+        <path>libretro/glsl/crt/crt-geom.glslp</path>        
+        <!-- CRT Display -->
+        <category>30004</category>
+        <!-- CRT Geom -->
+        <name>30010</name>
+    </preset>
+    <preset>
+        <path>libretro/glsl/handheld/lcd3x.glslp</path>        
+        <!-- LCD Screen -->
+        <category>30032</category>
+        <!-- LCD3x -->
+        <name>30033</name>
+    </preset>
+    <preset>
+        <path>libretro/glsl/eagle/super-eagle.glslp</path>        
+        <!-- Scaling Shader -->
+        <category>30018</category>
+        <!-- Super Eagle -->
+        <name>30024</name>
+    </preset>
+    <preset>
+        <path>libretro/glsl/vhs/vhs.glslp</path>        
+        <!-- VHS -->
+        <category>30041</category>
+        <!-- VHS -->
+        <name>30041</name>
+    </preset>
+    <preset>
+        <path>libretro/glsl/crt/crtglow_lanczos.glslp</path>        
+        <!-- CRT Display -->
+        <category>30004</category>
+        <!-- CRT Glow Lanczos -->
+        <name>30043</name>
+    </preset>
+    <preset>
+        <path>libretro/glsl/xbrz/6xbrz-linear.glslp</path>        
+        <!-- Scaling Shader -->
+        <category>30018</category>
+        <!-- 6xBZR Linear -->
+        <name>30042</name>
+    </preset>
+    <preset>
+        <path>libretro/glsl/crt/crt-lottes-multipass.glslp</path>        
+        <!-- CRT Display -->
+        <category>30004</category>
+        <!-- CRT Lottes Multipass -->
+        <name>30044</name>
+    </preset>
+    <preset>
+        <path>libretro/glsl/anti-aliasing/advanced-aa.glslp</path>        
+        <!-- Anti-Aliasing -->
+        <category>30045</category>
+        <!-- Advanced AA -->
+        <name>30046</name>
+    </preset>
+    <preset>
+        <path>libretro/glsl/handheld/agb001.glslp</path>        
+        <!-- Game Boy -->
+        <category>30001</category>
+        <!-- AGB 001 -->
+        <name>30047</name>
+    </preset>
+    <preset>
+        <path>libretro/glsl/crt/crt-hyllian-3d.glslp</path>        
+        <!-- CRT Display -->
+        <category>30004</category>
+        <!-- CRT Hyllian 3D -->
+        <name>30049</name>
+    </preset>
+    <preset>
+        <path>libretro/glsl/handheld/dot.glslp</path>        
+        <!-- LCD Screen -->
+        <category>30032</category>
+        <!-- Dot -->
+        <name>30052</name>
+    </preset>
+    <preset>
+        <path>libretro/glsl/pal/pal.glslp</path>        
+        <!-- TV-out -->
+        <category>30013</category>
+        <!-- Pal -->
+        <name>30050</name>
+    </preset>
+    <preset>
+        <path>libretro/glsl/cel/advcartoon.glslp</path>        
+        <!-- Color -->
+        <category>30048</category>
+        <!-- AdvCartoon -->
+        <name>30051</name>
+    </preset>
+    <preset>
+        <path>libretro/glsl/crt/crt-easymode.glslp</path>        
+        <!-- CRT Display -->
+        <category>30004</category>
+        <!-- CRT Easymode -->
+        <name>30053</name>
+    </preset>
+</presets>
