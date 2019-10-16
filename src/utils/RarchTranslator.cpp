@@ -22,7 +22,7 @@
 #include "utils/URIUtils.h"
 
 #include <cstring>
-#include <malloc.h>
+#include <stdlib.h>
 
 SHADER_SCALE_TYPE CRarchTranslator::TranslateScaleType(enum gfx_scale_type type)
 {
