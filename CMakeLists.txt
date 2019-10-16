@@ -87,5 +87,8 @@ endif()
 list(APPEND DEPLIBS ${kodiplatform_LIBRARIES}
                     ${p8-platform_LIBRARIES})
 
+if(CORE_SYSTEM_NAME STREQUAL osx)
+  list(APPEND DEPLIBS "-framework CoreFoundation")
+endif()
 
 build_addon(game.shader.presets SHADERPRESETS DEPLIBS)
