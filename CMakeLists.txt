@@ -72,6 +72,8 @@ set(SHADERPRESETS_HEADERS src/addon.h
                      src/depends/libretro-common/include/streams/file_stream.h
                      src/depends/libretro-common/include/string/stdstring.h)
 
+add_definitions(-DRARCH_INTERNAL)
+
 if(CORE_SYSTEM_NAME STREQUAL windows)
   list(APPEND SHADERPRESETS_SOURCES src/utils/windows/CharsetConverter.cpp)
   list(APPEND SHADERPRESETS_HEADERS src/utils/windows/CharsetConverter.h)
